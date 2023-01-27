@@ -4,12 +4,12 @@ import colors from "../../style/colors";
 const NavigationCmp = () => {
     return <Container>
         <NavigationSection title="Zamówienia - wszystkie">
-            <NavigationButton>Stworzone</NavigationButton>
+            <NavigationButton>Oczekujące</NavigationButton>
             <NavigationButton>W realizacji</NavigationButton>
             <NavigationButton>Zamknięte</NavigationButton>
         </NavigationSection>
         <NavigationSection title="Zamówienia - Twoje">
-            <NavigationButton>Stworzone</NavigationButton>
+            <NavigationButton>Oczekujące</NavigationButton>
             <NavigationButton>W realizacji</NavigationButton>
             <NavigationButton>Zamknięte</NavigationButton>
         </NavigationSection>
