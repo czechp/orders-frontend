@@ -7,10 +7,9 @@ export const Layout = styled.div`
   width: 100vw;
 `;
 
-export const Topbar = styled.div`
+export const TopBar = styled.div`
   width: 100vw;
   height: 10vh;
-  padding: 1rem 0;
   border-bottom: 2px solid;
 `;
 
@@ -19,11 +18,10 @@ export const ContentWrapper = styled.div`
 `
 
 export const Content = styled.div`
-  width: 100vw;
-  min-height: calc(100vh - 10vh - 2rem - 2px);
+  min-height: calc(100vh - 10vh);
 
 `
 export const Navigation = styled.div`
-    width: calc(20vw - 2rem);
+    width: 20vw;
     border-right: 2px solid;
 `;
