@@ -1,12 +1,21 @@
+import {useNavigate} from "react-router-dom";
+
 import styled from "styled-components";
 import colors from "../../style/colors";
 
 const NavigationCmp = () => {
+    const navigate = useNavigate();
+
     return <Container>
+        <NavigationSection title="Home">
+            <NavigationButton onClick={()=>navigate("/")}>Home</NavigationButton>
+            <NavigationButton onClick={()=>navigate("/register")}>Rejestracja</NavigationButton>
+
+        </NavigationSection>
         <NavigationSection title="Zamówienia - wszystkie">
-            <NavigationButton>Oczekujące</NavigationButton>
-            <NavigationButton>W realizacji</NavigationButton>
-            <NavigationButton>Zamknięte</NavigationButton>
+            <NavigationButton onClick={()=>navigate("/orders-all")}>Oczekujące</NavigationButton>
+            <NavigationButton onClick={()=>navigate("/orders-all")}>W realizacji</NavigationButton>
+            <NavigationButton onClick={()=>navigate("/orders-all")}>Zamknięte</NavigationButton>
         </NavigationSection>
         <NavigationSection title="Zamówienia - Twoje">
             <NavigationButton>Oczekujące</NavigationButton>
