@@ -2,6 +2,7 @@ import './App.css';
 import {Content, ContentWrapper, Layout, Navigation, TopBar} from "./layout/Layout";
 import TopBarCmp from "./layout/component/TopBarCmp";
 import NavigationCmp from "./layout/component/NavigationCmp";
+import PageCmp from "./component/PageCmp";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
                     <NavigationCmp />
                 </Navigation>
                 <Content>
-
+                    <PageCmp title="Example page" />
                 </Content>
             </ContentWrapper>
         </Layout>
