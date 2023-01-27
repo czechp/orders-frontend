@@ -7,7 +7,7 @@ const PageCmp = ({title, loaded = true, children}) => {
     return <Container>
         <Title>{title}</Title>
         <hr/>
-        {loaded ? <>{children}</> : <LoadingSpinnerWrapper><LoadingSpinner/></LoadingSpinnerWrapper>}
+        {loaded ? <ContentContainer>{children}</ContentContainer> : <LoadingSpinnerWrapper><LoadingSpinner/></LoadingSpinnerWrapper>}
     </Container>
 }
 
@@ -25,5 +25,12 @@ const LoadingSpinnerWrapper = styled.div`
   margin-top: 15rem;
   display: flex;
   justify-content: center;
+`;
+
+const ContentContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 export default PageCmp;
