@@ -17,6 +17,7 @@ export const ContentWrapper = styled.div`
 `
 
 export const Content = styled.div`
+    width: 80vw;
 `
 
 export const Navigation = styled.div`
