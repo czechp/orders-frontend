@@ -25,6 +25,7 @@ const InputTextCmp = ({
 }
 
 const Container = styled.div`
+  margin-top: 1rem;
   width: 100%;
   margin-bottom: 1.5rem;
 `;
@@ -45,7 +46,8 @@ const InputText = styled.input`
 `;
 
 const Label = styled.label``;
-const Error = styled.span`
+const Error = styled.p`
+  margin-top: 0.5rem;
   color: ${colors.danger}
 `;
 
