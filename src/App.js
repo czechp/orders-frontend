@@ -1,16 +1,19 @@
 import './App.css';
-import {Content, ContentWrapper, Layout, Navigation, Topbar} from "./layout/Layout";
+import {Content, ContentWrapper, Layout, Navigation, TopBar} from "./layout/Layout";
+import TopBarCmp from "./layout/component/TopBarCmp";
+import NavigationCmp from "./layout/component/NavigationCmp";
 
 function App() {
   return (
     <div className="App">
-        <Layout>
-            <Topbar>
 
-            </Topbar>
+        <Layout>
+            <TopBar>
+                <TopBarCmp />
+            </TopBar>
             <ContentWrapper>
                 <Navigation>
-
+                    <NavigationCmp />
                 </Navigation>
                 <Content>
 
