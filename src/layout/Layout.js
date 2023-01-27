@@ -22,4 +22,5 @@ export const Content = styled.div`
 export const Navigation = styled.div`
     width: 20vw;
     border-right: 2px solid;
+    min-height: 90vh;
 `;
