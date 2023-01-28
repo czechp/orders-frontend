@@ -37,9 +37,38 @@ const RegisterPage = () => {
     const passwordConfirmValidator = {
         message: "Podane hasła są różne",
         validate: function (text) {
-            return password.localeCompare(text) === 0 ;
+            return password.localeCompare(text) === 0;
         }
     };
+
+    function fieldsValidated() {
+        const result = {validated: false, message: ""};
+        if (!loginValidator.validate(login)) {
+            result.message = "Login niepoprawny";
+            return result;
+        }
+        if (!emailValidator.validate(email)) {
+            result.message = "Email niepoprawny";
+            return result;
+        }
+        if (!passwordValidator.validate(password)) {
+            result.message = "Hasło nieporawne";
+            return result;
+        }
+        if (!passwordConfirmValidator.validate(passwordConfirm)) {
+            result.message = "Hasła są różne";
+            return result;
+        }
+        result.validated=true;
+        return result;
+    }
+
+    function registerButtonOnClick() {
+        const validationResult = fieldsValidated();
+        if (validationResult.validated) {
+        } else {
+        }
+    }
 
     return <PageCmp title={"Rejestracja"}>
         <FormCmp>
@@ -69,8 +98,7 @@ const RegisterPage = () => {
                           validation={passwordConfirmValidator}
                           type="password"
             />
-            <ButtonCmp title="Rejestracja" color={colors.primary} onClick={()=>{
-                console.log("Hello world")}} />
+            <ButtonCmp title="Rejestracja" color={colors.primary} onClick={registerButtonOnClick} />
         </FormCmp>
     </PageCmp>
 }
