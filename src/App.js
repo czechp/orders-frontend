@@ -1,3 +1,4 @@
+import React from "react";
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
@@ -7,13 +8,17 @@ import NavigationCmp from "./layout/component/NavigationCmp";
 import HomePage from "./page/HomePage/HomePage";
 import OrdersAll from "./page/OrdersAll/OrdersAll";
 import RegisterPage from "./page/Register/RegisterPage";
+import useStatementContext from "./context/useStatementContext";
+
+export const StatementContext = React.createContext();
 
 function App() {
     return (<div className="App">
-            <Layout>
-                <TopBar>
-                    <TopBarCmp/>
-                </TopBar>
+        <Layout>
+            <TopBar>
+                <TopBarCmp/>
+            </TopBar>
+            <StatementContext.Provider value={useStatementContext()}>
                 <ContentWrapper>
                     <BrowserRouter>
                         <Navigation>
@@ -28,8 +33,9 @@ function App() {
                         </Content>
                     </BrowserRouter>
                 </ContentWrapper>
-            </Layout>
-        </div>);
+            </StatementContext.Provider>
+        </Layout>
+    </div>);
 }
 
 export default App;
