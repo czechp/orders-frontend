@@ -7,8 +7,6 @@ const useStatementContext = () => {
     function showInfo(text, error = false) {
         setStatement(text);
         setIsError(error);
-        console.log(text);
-        console.log(isError);
     }
 
     return {statement, isError, showInfo};
