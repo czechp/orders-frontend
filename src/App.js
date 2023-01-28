@@ -9,16 +9,18 @@ import HomePage from "./page/HomePage/HomePage";
 import OrdersAll from "./page/OrdersAll/OrdersAll";
 import RegisterPage from "./page/Register/RegisterPage";
 import useStatementContext from "./context/useStatementContext";
+import StatementCmp from "./component/StatementCmp";
 
 export const StatementContext = React.createContext();
 
 function App() {
     return (<div className="App">
         <Layout>
+            <StatementContext.Provider value={useStatementContext()}>
             <TopBar>
+                <StatementCmp />
                 <TopBarCmp/>
             </TopBar>
-            <StatementContext.Provider value={useStatementContext()}>
                 <ContentWrapper>
                     <BrowserRouter>
                         <Navigation>
