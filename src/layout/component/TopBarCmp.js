@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "../../style/colors";
 
 const TopBar = () => {
     return <Container>
@@ -35,6 +36,8 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  background-color: ${colors.background};
+  
 `;
 
 const TitleContainer = styled.div``;
