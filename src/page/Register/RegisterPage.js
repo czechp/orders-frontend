@@ -4,6 +4,8 @@ import emailValid from "email-validator";
 import PageCmp from "../../component/PageCmp";
 import FormCmp from "../../component/FormCmp";
 import InputTextCmp from "../../component/InputTextCmp";
+import ButtonCmp from "../../component/ButtonCmp";
+import colors from "../../style/colors";
 
 const RegisterPage = () => {
     const [login, setLogin] = React.useState("");
@@ -67,6 +69,8 @@ const RegisterPage = () => {
                           validation={passwordConfirmValidator}
                           type="password"
             />
+            <ButtonCmp title="Rejestracja" color={colors.primary} onClick={()=>{
+                console.log("Hello world")}} />
         </FormCmp>
     </PageCmp>
 }
