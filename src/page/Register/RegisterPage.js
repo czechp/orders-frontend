@@ -6,8 +6,11 @@ import FormCmp from "../../component/FormCmp";
 import InputTextCmp from "../../component/InputTextCmp";
 import ButtonCmp from "../../component/ButtonCmp";
 import colors from "../../style/colors";
+import {StatementContext} from "../../App";
 
 const RegisterPage = () => {
+    const {showInfo} = React.useContext(StatementContext);
+
     const [login, setLogin] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -66,7 +69,9 @@ const RegisterPage = () => {
     function registerButtonOnClick() {
         const validationResult = fieldsValidated();
         if (validationResult.validated) {
+            showInfo("Everything ok");
         } else {
+            showInfo(validationResult.message, true);
         }
     }
 
