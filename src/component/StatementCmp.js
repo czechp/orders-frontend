@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import {StatementContext} from "../App";
 import colors from "../style/colors";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCircleCheck, faTriangleExclamation} from "@fortawesome/free-solid-svg-icons";
 
 const StatementCmp = () => {
     const {statement, isError, showInfo} = React.useContext(StatementContext);
@@ -24,9 +26,19 @@ const StatementCmp = () => {
     }, [statement]);
     return <Container error={isError}>
         {visibility && <StatementContainer error={isError}>
-            {statement}
+            <StatementIcons error={isError}>
+                <Content> {statement}</Content>
+            </StatementIcons>
         </StatementContainer>}
     </Container>
+}
+
+const StatementIcons = ({error, children}) => {
+    return <IconContainer>
+        {error ? <FontAwesomeIcon icon={faTriangleExclamation} size={"2x"}/> : <FontAwesomeIcon icon={faCircleCheck} size={"2x"}/> }
+        {children}
+        {error ? <FontAwesomeIcon icon={faTriangleExclamation} size={"2x"}/> : <FontAwesomeIcon icon={faCircleCheck} size={"2x"}/> }
+    </IconContainer>
 }
 
 const Container = styled.div`
@@ -44,9 +56,14 @@ const StatementContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  color: ${props => props.error ? colors.danger : colors.basic };
-  //border: 5px solid;
+  color: ${props => props.error ? colors.danger : colors.basic};
   border-radius: 10px;
-  
+
 `;
+
+const Content = styled.span`
+  margin: 0 2rem;
+`;
+
+const IconContainer = styled.div``;
 export default StatementCmp;
