@@ -64,5 +64,9 @@ const Content = styled.span`
   margin: 0 2rem;
 `;
 
-const IconContainer = styled.div``;
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 export default StatementCmp;
