@@ -19,11 +19,10 @@ const StatementCmp = () => {
         }
 
         if (statement !== "") {
-            console.log("Something change")
             setVisibility(true);
             hideWindow();
         }
-    }, [statement]);
+    }, [statement, showInfo]);
     return <Container error={isError}>
         {visibility && <StatementContainer error={isError}>
             <StatementIcons error={isError}>
