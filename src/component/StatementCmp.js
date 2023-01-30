@@ -15,7 +15,7 @@ const StatementCmp = () => {
             setTimeout(() => {
                 setVisibility(false);
                 showInfo("");
-            }, 3000);
+            }, 5000);
         }
 
         if (statement !== "") {
