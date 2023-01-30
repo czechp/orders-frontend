@@ -1,5 +1,4 @@
 import React from "react";
-import emailValid from "email-validator";
 
 import PageCmp from "../../component/PageCmp";
 import FormCmp from "../../component/FormCmp";
@@ -7,6 +6,9 @@ import InputTextCmp from "../../component/InputTextCmp";
 import ButtonCmp from "../../component/ButtonCmp";
 import colors from "../../style/colors";
 import {StatementContext} from "../../App";
+import axiosBackend from "../../service/httpService";
+import httpErrorHandler from "../../service/httpErrorHandler";
+import {emailValidator, loginValidator, passwordConfirmValidator, passwordValidator} from "./registerFromValidators";
 
 const RegisterPage = () => {
     const {showInfo} = React.useContext(StatementContext);
@@ -16,62 +18,31 @@ const RegisterPage = () => {
     const [password, setPassword] = React.useState("");
     const [passwordConfirm, setPasswordConfirm] = React.useState("");
 
-    const loginValidator = {
-        message: "Minimalna długość to 3 znaki",
-        validate: function (text) {
-            return text.length >= 3;
-        }
-    };
-
-    const emailValidator = {
-        message: "Niepoprawny format adresu email",
-        validate: function (text) {
-            return emailValid.validate(text);
-        }
-    };
-
-    const passwordValidator = {
-        message: "Minimalna długość to 3 znaki",
-        validate: function (text) {
-            return text.length >= 3;
-        }
-    };
-
-    const passwordConfirmValidator = {
-        message: "Podane hasła są różne",
-        validate: function (text) {
-            return password.localeCompare(text) === 0;
-        }
-    };
-
     function fieldsValidated() {
-        const result = {validated: false, message: ""};
-        if (!loginValidator.validate(login)) {
-            result.message = "Login niepoprawny";
-            return result;
-        }
-        if (!emailValidator.validate(email)) {
-            result.message = "Email niepoprawny";
-            return result;
-        }
-        if (!passwordValidator.validate(password)) {
-            result.message = "Hasło nieporawne";
-            return result;
-        }
-        if (!passwordConfirmValidator.validate(passwordConfirm)) {
-            result.message = "Hasła są różne";
-            return result;
-        }
-        result.validated=true;
-        return result;
+        return loginValidator.validate(login)
+            && emailValidator.validate(email)
+            && passwordValidator.validate(password)
+            && passwordConfirmValidator.validate(passwordConfirm, password);
+    }
+
+    function sendRegisterRequest() {
+        const requestBody = {username: login, password, email};
+        axiosBackend.post("/api/users/register", requestBody)
+            .then((response) => {
+                showInfo(`Użytkownik ${login} został stworzony. Sprawdź email i aktywuj konto`);
+                //TODO: navigate to email activation page
+            })
+            .catch(error => {
+                httpErrorHandler(error, showInfo)
+            })
     }
 
     function registerButtonOnClick() {
         const validationResult = fieldsValidated();
-        if (validationResult.validated) {
-            showInfo("Everything ok");
+        if (validationResult) {
+            sendRegisterRequest();
         } else {
-            showInfo(validationResult.message, true);
+            showInfo("Sprawdź poprawność danych", true);
         }
     }
 
@@ -100,10 +71,13 @@ const RegisterPage = () => {
                           value={passwordConfirm}
                           setValue={setPasswordConfirm}
                           placeholder={"Wpisz ponownie swoje hasło"}
-                          validation={passwordConfirmValidator}
+                          validation={{
+                              ...passwordConfirmValidator,
+                              validate: (text) => passwordConfirmValidator.validate(text, password)
+                          }}
                           type="password"
             />
-            <ButtonCmp title="Rejestracja" color={colors.primary} onClick={registerButtonOnClick} />
+            <ButtonCmp title="Rejestracja" color={colors.primary} onClick={registerButtonOnClick}/>
         </FormCmp>
     </PageCmp>
 }
