@@ -23,7 +23,7 @@ const StatementCmp = () => {
         }
     }, [statement]);
     return <Container error={isError}>
-        {visibility && <StatementContainer >
+        {visibility && <StatementContainer error={isError}>
             {statement}
         </StatementContainer>}
     </Container>
@@ -44,8 +44,8 @@ const StatementContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  color: ${props => props.error ? "red" : colors.basic };
-  border: 5px solid;
+  color: ${props => props.error ? colors.danger : colors.basic };
+  //border: 5px solid;
   border-radius: 10px;
   
 `;
