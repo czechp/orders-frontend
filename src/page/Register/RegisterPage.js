@@ -29,7 +29,7 @@ const RegisterPage = () => {
         const requestBody = {username: login, password, email};
         axiosBackend.post("/api/users/register", requestBody)
             .then((response) => {
-                console.log(response);
+                //TODO: navigate to email activation page
             })
             .catch(error => {
                 httpErrorHandler(error, showInfo)
