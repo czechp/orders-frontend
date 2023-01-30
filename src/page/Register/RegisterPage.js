@@ -29,6 +29,7 @@ const RegisterPage = () => {
         const requestBody = {username: login, password, email};
         axiosBackend.post("/api/users/register", requestBody)
             .then((response) => {
+                showInfo(`Użytkownik ${login} został stworzony. Sprawdź email i aktywuj konto`);
                 //TODO: navigate to email activation page
             })
             .catch(error => {
