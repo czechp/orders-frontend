@@ -9,9 +9,11 @@ import {StatementContext} from "../../App";
 import axiosBackend from "../../service/httpService";
 import httpErrorHandler from "../../service/httpErrorHandler";
 import {emailValidator, loginValidator, passwordConfirmValidator, passwordValidator} from "./registerFromValidators";
+import useAxios from "../../service/useAxios";
 
 const RegisterPage = () => {
     const {showInfo} = React.useContext(StatementContext);
+    const axiosBackendHook = useAxios();
 
     const [login, setLogin] = React.useState("");
     const [email, setEmail] = React.useState("");
@@ -27,14 +29,14 @@ const RegisterPage = () => {
 
     function sendRegisterRequest() {
         const requestBody = {username: login, password, email};
-        axiosBackend.post("/api/users/register", requestBody)
-            .then((response) => {
-                showInfo(`Użytkownik ${login} został stworzony. Sprawdź email i aktywuj konto`);
-                //TODO: navigate to email activation page
-            })
-            .catch(error => {
-                httpErrorHandler(error, showInfo)
-            })
+        axiosBackendHook.post("/api/users/register", requestBody, ()=>{showInfo(`Użytkownik ${login} został stworzony. Sprawdź email i aktywuj konto`);})
+            // .then((response) => {
+            //     showInfo(`Użytkownik ${login} został stworzony. Sprawdź email i aktywuj konto`);
+            //     //TODO: navigate to email activation page
+            // })
+            // .catch(error => {
+            //     httpErrorHandler(error, showInfo)
+            // })
     }
 
     function registerButtonOnClick() {
