@@ -19,7 +19,6 @@ function App() {
         <Layout>
             <StatementContext.Provider value={useStatementContext()}>
                 <TopBar>
-                    <StatementCmp/>
                     <TopBarCmp/>
                 </TopBar>
                 <ContentWrapper>
@@ -37,6 +36,7 @@ function App() {
                         </Content>
                     </BrowserRouter>
                 </ContentWrapper>
+                <StatementCmp/>
             </StatementContext.Provider>
         </Layout>
     </div>);

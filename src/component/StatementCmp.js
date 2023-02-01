@@ -42,11 +42,11 @@ const StatementIcons = ({error, children}) => {
 
 const Container = styled.div`
   border-radius: 10px;
-  position: absolute;
-  top: 0;
-  right: calc(100vw / 2 - 100vw * 0.25);
+  position: fixed;
+  bottom: .5rem;
+  right: .5rem;
   width: 40vw;
-  height: 100%;
+
 
 `;
 const StatementContainer = styled.div`
@@ -57,6 +57,9 @@ const StatementContainer = styled.div`
   height: 100%;
   color: ${props => props.error ? colors.danger : colors.basic};
   border-radius: 10px;
+  border: 0.25rem solid;
+  padding: 3rem 5rem;
+  
 
 `;
 
