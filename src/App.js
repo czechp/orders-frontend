@@ -10,6 +10,7 @@ import OrdersAll from "./page/OrdersAll/OrdersAll";
 import RegisterPage from "./page/Register/RegisterPage";
 import useStatementContext from "./context/useStatementContext";
 import StatementCmp from "./component/StatementCmp";
+import ConfirmUserPage from "./page/ConfirmUser/ConfirmUserPage";
 
 export const StatementContext = React.createContext();
 
@@ -17,10 +18,10 @@ function App() {
     return (<div className="App">
         <Layout>
             <StatementContext.Provider value={useStatementContext()}>
-            <TopBar>
-                <StatementCmp />
-                <TopBarCmp/>
-            </TopBar>
+                <TopBar>
+                    <StatementCmp/>
+                    <TopBarCmp/>
+                </TopBar>
                 <ContentWrapper>
                     <BrowserRouter>
                         <Navigation>
@@ -30,6 +31,7 @@ function App() {
                             <Routes>
                                 <Route path={"/"} element={<HomePage/>}/>
                                 <Route path={"/register"} element={<RegisterPage/>}/>
+                                <Route path={"/user-confirm"} element={<ConfirmUserPage/>}/>
                                 <Route path={"/orders-all"} element={<OrdersAll/>}/>
                             </Routes>
                         </Content>
