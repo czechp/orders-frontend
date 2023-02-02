@@ -10,7 +10,7 @@ import {useNavigate} from "react-router-dom";
 
 const ConfirmUserPage = () => {
     const axiosBackendHook = useAxios();
-    const {showInfo, statement} = React.useContext(StatementContext);
+    const {showInfo} = React.useContext(StatementContext);
     const navigate = useNavigate();
 
     const [confirmationToken, setConfirmationToken] = React.useState("");
