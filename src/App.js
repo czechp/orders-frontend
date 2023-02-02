@@ -11,6 +11,7 @@ import RegisterPage from "./page/Register/RegisterPage";
 import useStatementContext from "./context/useStatementContext";
 import StatementCmp from "./component/StatementCmp";
 import ConfirmUserPage from "./page/ConfirmUser/ConfirmUserPage";
+import LoginPage from "./page/LoginPage/LoginPage";
 
 export const StatementContext = React.createContext();
 
@@ -31,6 +32,7 @@ function App() {
                                 <Route path={"/"} element={<HomePage/>}/>
                                 <Route path={"/register"} element={<RegisterPage/>}/>
                                 <Route path={"/user-confirm"} element={<ConfirmUserPage/>}/>
+                                <Route path={"/login"} element={<LoginPage/>}/>
                                 <Route path={"/orders-all"} element={<OrdersAll/>}/>
                             </Routes>
                         </Content>
