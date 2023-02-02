@@ -10,6 +10,7 @@ const NavigationCmp = () => {
         <NavigationSection title="Home">
             <NavigationButton onClick={()=>navigate("/")}>Home</NavigationButton>
             <NavigationButton onClick={()=>navigate("/register")}>Rejestracja</NavigationButton>
+            <NavigationButton onClick={()=>navigate("/user-confirm")}>Aktywuj konto</NavigationButton>
 
         </NavigationSection>
         <NavigationSection title="Zamówienia - wszystkie">

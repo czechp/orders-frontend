@@ -6,13 +6,13 @@ import InputTextCmp from "../../component/InputTextCmp";
 import ButtonCmp from "../../component/ButtonCmp";
 import colors from "../../style/colors";
 import {StatementContext} from "../../App";
-import axiosBackend from "../../service/httpService";
-import httpErrorHandler from "../../service/httpErrorHandler";
 import {emailValidator, loginValidator, passwordConfirmValidator, passwordValidator} from "./registerFromValidators";
 import useAxios from "../../service/useAxios";
+import {useNavigate} from "react-router-dom";
 
 const RegisterPage = () => {
     const {showInfo} = React.useContext(StatementContext);
+    const navigate = useNavigate();
     const axiosBackendHook = useAxios();
 
     const [login, setLogin] = React.useState("");
@@ -29,14 +29,10 @@ const RegisterPage = () => {
 
     function sendRegisterRequest() {
         const requestBody = {username: login, password, email};
-        axiosBackendHook.post("/api/users/register", requestBody, ()=>{showInfo(`Użytkownik ${login} został stworzony. Sprawdź email i aktywuj konto`);})
-            // .then((response) => {
-            //     showInfo(`Użytkownik ${login} został stworzony. Sprawdź email i aktywuj konto`);
-            //     //TODO: navigate to email activation page
-            // })
-            // .catch(error => {
-            //     httpErrorHandler(error, showInfo)
-            // })
+        axiosBackendHook.post("/api/users/register", requestBody, () => {
+            showInfo(`Użytkownik ${login} został stworzony. Sprawdź email i aktywuj konto`);
+            navigate("/user-confirm");
+        })
     }
 
     function registerButtonOnClick() {

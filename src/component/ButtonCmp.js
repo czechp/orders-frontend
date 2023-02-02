@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import colors from "../style/colors";
 
-const ButtonCmp = ({title, color = "transparent", onClick}) => {
+const ButtonCmp = ({title, color = colors.primary, onClick}) => {
     function onClickInternal(event){
         event.preventDefault();
         onClick();
