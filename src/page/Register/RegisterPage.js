@@ -7,13 +7,13 @@ import ButtonCmp from "../../component/ButtonCmp";
 import colors from "../../style/colors";
 import {StatementContext} from "../../App";
 import {emailValidator, loginValidator, passwordConfirmValidator, passwordValidator} from "./registerFromValidators";
-import useAxios from "../../service/useAxios";
+import useAxiosService from "../../service/useAxiosService";
 import {useNavigate} from "react-router-dom";
 
 const RegisterPage = () => {
     const {showInfo} = React.useContext(StatementContext);
     const navigate = useNavigate();
-    const axiosBackendHook = useAxios();
+    const axiosBackendHook = useAxiosService();
 
     const [login, setLogin] = React.useState("");
     const [email, setEmail] = React.useState("");

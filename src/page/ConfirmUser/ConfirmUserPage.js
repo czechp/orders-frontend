@@ -4,12 +4,12 @@ import PageCmp from "../../component/PageCmp";
 import FormCmp from "../../component/FormCmp";
 import InputTextCmp from "../../component/InputTextCmp";
 import ButtonCmp from "../../component/ButtonCmp";
-import useAxios from "../../service/useAxios";
+import useAxiosService from "../../service/useAxiosService";
 import {StatementContext} from "../../App";
 import {useNavigate} from "react-router-dom";
 
 const ConfirmUserPage = () => {
-    const axiosBackendHook = useAxios();
+    const axiosBackendHook = useAxiosService();
     const {showInfo} = React.useContext(StatementContext);
     const navigate = useNavigate();
 
