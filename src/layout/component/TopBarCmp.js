@@ -3,6 +3,8 @@ import styled from "styled-components";
 import colors from "../../style/colors";
 import {AuthenticationContext} from "../../App";
 import useAuthenticationService from "../../service/useAuthenticationService";
+import ButtonCmp from "../../component/ButtonCmp";
+import {useNavigate} from "react-router-dom";
 
 const TopBar = () => {
     return <Container>
@@ -16,17 +18,20 @@ const TopBar = () => {
 
 const LoginSection = () => {
     const {logged} = React.useContext(AuthenticationContext);
+    const navigate = useNavigate();
     return <LoginSectionContainer>
-        {logged ? <UserInfo/> : <LoginPageLink>Zaloguj</LoginPageLink>}
+        {logged ? <UserInfo/> : <LoginPageLink onClick={() => navigate("/login")}>Zaloguj</LoginPageLink>}
     </LoginSectionContainer>
 }
 
 const UserInfo = ()=> {
-    const {getUserInfo} = useAuthenticationService();
+    const {getUserInfo, logout} = useAuthenticationService();
     const {login, email} = getUserInfo();
+
     return <UserInfoContainer>
-        <UserInfoRow>Login: {login}</UserInfoRow>
-        <UserInfoRow>Email: {email}</UserInfoRow>
+        <UserInfoRow>{login}</UserInfoRow>
+        <UserInfoRow>{email}</UserInfoRow>
+        <ButtonCmp title="Wyloguj" style={{fontSize: "smaller"}} onClick={logout}/>
     </UserInfoContainer>
 }
 
@@ -66,7 +71,8 @@ const UserInfoContainer = styled.div`
   align-items: start;
   justify-content: center;
 `;
-const UserInfoRow = styled.span`
-  margin-bottom: 0.5rem;
+const UserInfoRow = styled.p`
+  margin: 0 0 .5rem 0;
+  width: 100%;
 `;
 export default TopBar;
