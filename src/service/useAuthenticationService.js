@@ -1,5 +1,6 @@
 import React from "react";
 import storageService from "./storageService";
+import {AuthenticationContext} from "../App";
 
 const labels = {
     login: "LOGIN",
@@ -12,16 +13,29 @@ function generateAuthenticationToken(login, password) {
     return window.btoa(`${login}:${password}`);
 }
 
-function logged(login, password, email, role){
-    storageService.save(labels.login, login);
-    storageService.save(labels.authenticationToken, generateAuthenticationToken(login, password));
-    storageService.save(labels.email, email);
-    storageService.save(labels.role, role);
-}
-
 const useAuthenticationService = () => {
+    const authContext = React.useContext(AuthenticationContext);
+
+    function logged(login, password, email, role){
+        storageService.save(labels.login, login);
+        storageService.save(labels.authenticationToken, generateAuthenticationToken(login, password));
+        storageService.save(labels.email, email);
+        storageService.save(labels.role, role);
+        authContext.logIn();
+    }
+
+    function getUserInfo(){
+        return {
+            login: storageService.read(labels.login),
+            role: storageService.read(labels.role),
+            email: storageService.read(labels.email),
+            authenticationToken: storageService.read(labels.authenticationToken)
+        }
+    }
+
     const [authenticationService] = React.useState({
-        logged
+        logged,
+        getUserInfo
     });
 
     return authenticationService;
