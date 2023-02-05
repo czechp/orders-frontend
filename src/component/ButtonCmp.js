@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import colors from "../style/colors";
 
-const ButtonCmp = ({title, color = colors.primary, onClick}) => {
+const ButtonCmp = ({title, color = colors.primary, onClick, style={}}) => {
     function onClickInternal(event){
         event.preventDefault();
         onClick();
     }
-    return <Button color={color} onClick={onClickInternal}>{title}</Button>;
+    return <Button style={style} color={color} onClick={onClickInternal}>{title}</Button>;
 }
 
 const Button = styled.button`
