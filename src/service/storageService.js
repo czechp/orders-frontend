@@ -4,6 +4,9 @@ const storageService = {
     },
     read(label) {
         return localStorage.getItem(label);
+    },
+    clear() {
+        localStorage.clear();
     }
 }
 
