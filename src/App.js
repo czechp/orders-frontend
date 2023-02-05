@@ -12,34 +12,38 @@ import useStatementContext from "./context/useStatementContext";
 import StatementCmp from "./component/StatementCmp";
 import ConfirmUserPage from "./page/ConfirmUser/ConfirmUserPage";
 import LoginPage from "./page/LoginPage/LoginPage";
+import {useAuthenticationContext} from "./service/useAuthenticationService";
 
 export const StatementContext = React.createContext();
+export const AuthenticationContext = React.createContext();
 
 function App() {
     return (<div className="App">
         <Layout>
-            <StatementContext.Provider value={useStatementContext()}>
-                <TopBar>
-                    <TopBarCmp/>
-                </TopBar>
-                <ContentWrapper>
+            <AuthenticationContext.Provider value={useAuthenticationContext()}>
+                <StatementContext.Provider value={useStatementContext()}>
                     <BrowserRouter>
-                        <Navigation>
-                            <NavigationCmp/>
-                        </Navigation>
-                        <Content>
-                            <Routes>
-                                <Route path={"/"} element={<HomePage/>}/>
-                                <Route path={"/register"} element={<RegisterPage/>}/>
-                                <Route path={"/user-confirm"} element={<ConfirmUserPage/>}/>
-                                <Route path={"/login"} element={<LoginPage/>}/>
-                                <Route path={"/orders-all"} element={<OrdersAll/>}/>
-                            </Routes>
-                        </Content>
+                        <TopBar>
+                            <TopBarCmp/>
+                        </TopBar>
+                        <ContentWrapper>
+                            <Navigation>
+                                <NavigationCmp/>
+                            </Navigation>
+                            <Content>
+                                <Routes>
+                                    <Route path={"/"} element={<HomePage/>}/>
+                                    <Route path={"/register"} element={<RegisterPage/>}/>
+                                    <Route path={"/user-confirm"} element={<ConfirmUserPage/>}/>
+                                    <Route path={"/login"} element={<LoginPage/>}/>
+                                    <Route path={"/orders-all"} element={<OrdersAll/>}/>
+                                </Routes>
+                            </Content>
+                        </ContentWrapper>
+                        <StatementCmp/>
                     </BrowserRouter>
-                </ContentWrapper>
-                <StatementCmp/>
-            </StatementContext.Provider>
+                </StatementContext.Provider>
+            </AuthenticationContext.Provider>
         </Layout>
     </div>);
 }
