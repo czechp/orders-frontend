@@ -9,7 +9,7 @@ const useAxios = () => {
     function handleError(error){
         httpErrorHandler(error, showInfo)
     }
-    const [axiosBackendHook, setAxiosBackendHook] = useState({
+    const [axiosBackendHook] = useState({
         post: ((endpoint, body, successHandler, errorHandler = handleError ) => {
             axiosBackend.post(endpoint, body)
                 .then(successHandler)
