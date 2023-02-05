@@ -27,4 +27,20 @@ const useAuthenticationService = () => {
     return authenticationService;
 }
 
+function isLogged() {
+    return storageService.read(labels.authenticationToken) !== null;
+}
+
+export const useAuthenticationContext = () => {
+    const [logged, setLogged] = React.useState(isLogged());
+    const logIn = () => {
+        setLogged(true)
+    };
+    const logOut = () => {
+        setLogged(false)
+    }
+
+    return {logged, logIn, logOut};
+}
+
 export default useAuthenticationService;
