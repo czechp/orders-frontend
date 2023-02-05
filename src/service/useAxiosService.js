@@ -23,7 +23,18 @@ const useAxiosService = () => {
             axiosBackend.post(endpoint, body)
                 .then(successHandler)
                 .catch(errorHandler)
-        })
+        }),
+        configureAuthorizationHeader: (authorizationHeader) => {
+            axiosBackend.interceptors.request.use((config) => {
+                if (authorizationHeader)
+                    config.headers.Authorization = `Basic ${authorizationHeader}`;
+                else
+                    config.headers.Authorization = "";
+
+
+                return config;
+            })
+        }
     });
     return axiosBackendHook;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import storageService from "./storageService";
 import {AuthenticationContext} from "../App";
 import {useNavigate} from "react-router-dom";
+import useAxiosService from "./useAxiosService";
 
 const labels = {
     login: "LOGIN",
@@ -16,7 +17,13 @@ function generateAuthenticationToken(login, password) {
 
 const useAuthenticationService = () => {
     const authContext = React.useContext(AuthenticationContext);
+    const {configureAuthorizationHeader} = useAxiosService();
     const navigate = useNavigate();
+
+    function configureAxios() {
+        const authenticationToken = storageService.read(labels.authenticationToken);
+        configureAuthorizationHeader(authenticationToken)
+    }
 
     function logged(login, password, email, role) {
         storageService.save(labels.login, login);
@@ -24,6 +31,7 @@ const useAuthenticationService = () => {
         storageService.save(labels.email, email);
         storageService.save(labels.role, role);
         authContext.logIn();
+        configureAxios();
     }
 
     function getUserInfo() {
@@ -39,6 +47,7 @@ const useAuthenticationService = () => {
         storageService.clear();
         authContext.logOut();
         navigate("/login");
+        configureAxios();
     }
 
     const [authenticationService] = React.useState({
