@@ -53,7 +53,8 @@ const useAuthenticationService = () => {
     const [authenticationService] = React.useState({
         login,
         getUserInfo,
-        logout
+        logout,
+        isLogged
     });
 
     return authenticationService;
