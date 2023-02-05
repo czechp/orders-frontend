@@ -23,7 +23,7 @@ const LoginPage = () => {
         showInfo(`Użytkownik ${login} zalogowany`);
         const email = response.data.email;
         const role = response.data.role;
-        authenticationService.logged(login, password, email, role);
+        authenticationService.login(login, password, email, role);
         navigate("/");
     }
 

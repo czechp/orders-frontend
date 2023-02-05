@@ -25,7 +25,7 @@ const useAuthenticationService = () => {
         configureAuthorizationHeader(authenticationToken)
     }
 
-    function logged(login, password, email, role) {
+    function login(login, password, email, role) {
         storageService.save(labels.login, login);
         storageService.save(labels.authenticationToken, generateAuthenticationToken(login, password));
         storageService.save(labels.email, email);
@@ -51,7 +51,7 @@ const useAuthenticationService = () => {
     }
 
     const [authenticationService] = React.useState({
-        logged,
+        login,
         getUserInfo,
         logout
     });
