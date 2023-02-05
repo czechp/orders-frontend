@@ -13,6 +13,7 @@ import StatementCmp from "./component/StatementCmp";
 import ConfirmUserPage from "./page/ConfirmUser/ConfirmUserPage";
 import LoginPage from "./page/LoginPage/LoginPage";
 import {useAuthenticationContext} from "./service/useAuthenticationService";
+import LoginGuard from "./guard/LoginGuard";
 
 export const StatementContext = React.createContext();
 export const AuthenticationContext = React.createContext();
@@ -32,11 +33,11 @@ function App() {
                             </Navigation>
                             <Content>
                                 <Routes>
-                                    <Route path={"/"} element={<HomePage/>}/>
+                                    <Route path={"/"} element={<LoginGuard><HomePage/></LoginGuard>}/>
+                                    <Route path={"/orders-all"} element={<LoginGuard><OrdersAll/></LoginGuard>}/>
                                     <Route path={"/register"} element={<RegisterPage/>}/>
                                     <Route path={"/user-confirm"} element={<ConfirmUserPage/>}/>
                                     <Route path={"/login"} element={<LoginPage/>}/>
-                                    <Route path={"/orders-all"} element={<OrdersAll/>}/>
                                 </Routes>
                             </Content>
                         </ContentWrapper>
