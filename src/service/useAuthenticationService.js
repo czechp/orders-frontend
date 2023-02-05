@@ -1,6 +1,7 @@
 import React from "react";
 import storageService from "./storageService";
 import {AuthenticationContext} from "../App";
+import {useNavigate} from "react-router-dom";
 
 const labels = {
     login: "LOGIN",
@@ -15,8 +16,9 @@ function generateAuthenticationToken(login, password) {
 
 const useAuthenticationService = () => {
     const authContext = React.useContext(AuthenticationContext);
+    const navigate = useNavigate();
 
-    function logged(login, password, email, role){
+    function logged(login, password, email, role) {
         storageService.save(labels.login, login);
         storageService.save(labels.authenticationToken, generateAuthenticationToken(login, password));
         storageService.save(labels.email, email);
@@ -24,7 +26,7 @@ const useAuthenticationService = () => {
         authContext.logIn();
     }
 
-    function getUserInfo(){
+    function getUserInfo() {
         return {
             login: storageService.read(labels.login),
             role: storageService.read(labels.role),
@@ -33,9 +35,16 @@ const useAuthenticationService = () => {
         }
     }
 
+    function logout() {
+        storageService.clear();
+        authContext.logOut();
+        navigate("/login");
+    }
+
     const [authenticationService] = React.useState({
         logged,
-        getUserInfo
+        getUserInfo,
+        logout
     });
 
     return authenticationService;
