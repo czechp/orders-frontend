@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import React from "react";
-import LoadingSpinner from "./LoadingSpinner";
 
 const PageCmp = ({title, loaded = true, children}) => {
 
     return <Container>
         <Title>{title}</Title>
         <hr/>
-        {loaded ? <ContentContainer>{children}</ContentContainer> : <LoadingSpinnerWrapper><LoadingSpinner/></LoadingSpinnerWrapper>}
+        <ContentContainer>{children}</ContentContainer>
     </Container>
 }
 

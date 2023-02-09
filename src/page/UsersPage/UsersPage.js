@@ -1,7 +1,13 @@
+import React from "react";
 import PageCmp from "../../component/PageCmp";
+import UsersList from "./component/UsersList";
 
-const UsersPage = ()=>{
-    return <PageCmp title={"Konta użytkownikow"}></PageCmp>
+const UsersPage = () => {
+    const [loaded, setLoaded] = React.useState(false);
+
+    return <PageCmp loaded={loaded} title={"Konta użytkownikow"}>
+        <UsersList setLoaded={setLoaded}/>
+    </PageCmp>
 }
 
 export default UsersPage;
