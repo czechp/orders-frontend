@@ -7,13 +7,14 @@ import TopBarCmp from "./layout/component/TopBarCmp";
 import NavigationCmp from "./layout/component/NavigationCmp";
 import HomePage from "./page/HomePage/HomePage";
 import OrdersAll from "./page/OrdersAll/OrdersAll";
-import RegisterPage from "./page/Register/RegisterPage";
+import RegisterPage from "./page/RegisterPage/RegisterPage";
 import useStatementContext from "./context/useStatementContext";
 import StatementCmp from "./component/StatementCmp";
-import ConfirmUserPage from "./page/ConfirmUser/ConfirmUserPage";
+import ConfirmUserPage from "./page/ConfirmUserPage/ConfirmUserPage";
 import LoginPage from "./page/LoginPage/LoginPage";
 import {useAuthenticationContext} from "./service/useAuthenticationService";
 import LoginGuard from "./guard/LoginGuard";
+import ForbiddenPage from "./page/ForbiddenPage/ForbiddenPage";
 
 export const StatementContext = React.createContext();
 export const AuthenticationContext = React.createContext();
@@ -38,6 +39,7 @@ function App() {
                                     <Route path={"/register"} element={<RegisterPage/>}/>
                                     <Route path={"/user-confirm"} element={<ConfirmUserPage/>}/>
                                     <Route path={"/login"} element={<LoginPage/>}/>
+                                    <Route path={"/forbidden"} element={<ForbiddenPage/>}/>
                                 </Routes>
                             </Content>
                         </ContentWrapper>
