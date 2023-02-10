@@ -4,8 +4,7 @@ import UsersList from "./component/UsersList";
 
 const UsersPage = () => {
     const [loaded, setLoaded] = React.useState(false);
-
-    return <PageCmp loaded={loaded} title={"Konta użytkownikow"}>
+    return <PageCmp loaded={loaded} title={"Konta użytkowników"}>
         <UsersList setLoaded={setLoaded}/>
     </PageCmp>
 }
