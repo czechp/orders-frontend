@@ -35,8 +35,8 @@ const useAxiosService = () => {
                 .then(successHandler)
                 .catch(errorHandler)
         }),
-        get: ((endpoint, successHandler, errorHandler = handleError) => {
-            createBackendInstance().get(endpoint)
+        get: ((endpoint, successHandler, params={}, errorHandler = handleError) => {
+            createBackendInstance().get(endpoint, {params})
                 .then(successHandler)
                 .catch(errorHandler)
         }),
