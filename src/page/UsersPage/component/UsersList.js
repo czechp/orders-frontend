@@ -5,11 +5,12 @@ import LoadingWrapper from "../../../component/LoadingWrapper";
 import dateFormatter from "../../../service/dateFormatter";
 import {Table, Td, Th, Thead, Tr} from "../../../style/table";
 import useSortingParams from "../../../service/useSortingParams";
+import {useNavigate} from "react-router-dom";
 
 const UsersList = () => {
     const axiosService = useAxiosService();
     const generateSortingParams = useSortingParams();
-
+    const navigate = useNavigate();
     const [users, setUsers] = React.useState(null);
 
     React.useEffect(() => {
@@ -28,16 +29,20 @@ const UsersList = () => {
         <Container>
             {users && <Table>
                 <Thead>
-                    <Th onClick={()=>sortByField("id")}>Id:</Th>
-                    <Th onClick={()=>sortByField("username")}>Login:</Th>
-                    <Th onClick={()=>sortByField("email")}>Email:</Th>
-                    <Th onClick={()=>sortByField("userRole")}>Rola:</Th>
-                    <Th onClick={()=>sortByField("confirmed")}>Potwierdzenie adresu email:</Th>
-                    <Th onClick={()=>sortByField("createdAt")}>Data utowrzenia:</Th>
+                    <Tr>
+                        <Th onClick={() => sortByField("id")}>Id:</Th>
+                        <Th onClick={() => sortByField("username")}>Login:</Th>
+                        <Th onClick={() => sortByField("email")}>Email:</Th>
+                        <Th onClick={() => sortByField("userRole")}>Rola:</Th>
+                        <Th onClick={() => sortByField("confirmed")}>Potwierdzenie adresu email:</Th>
+                        <Th onClick={() => sortByField("createdAt")}>Data utowrzenia:</Th>
+                    </Tr>
                 </Thead>
                 <tbody>
                 {
-                    users.map((user, id) => <UserRow key={`${user.id}-${Math.random()}`} user={user}/>)
+                    users.map((user, id) => <UserRow
+                        onClick={() => navigate("/user-details", {state: {userId: user.id, username: user.username}})}
+                        key={`${user.id}-${Math.random()}`} user={user}/>)
                 }
                 </tbody>
             </Table>}
@@ -45,9 +50,9 @@ const UsersList = () => {
     </LoadingWrapper>
 }
 
-const UserRow = ({user}) => {
+const UserRow = ({user, onClick}) => {
     //TODO: add admin activation
-    return <Tr>
+    return <Tr onClick={onClick}>
         <Td>{user.id}</Td>
         <Td>{user.username}</Td>
         <Td>{user.email}</Td>
