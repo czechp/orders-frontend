@@ -4,26 +4,36 @@ import useAxiosService from "../../../service/useAxiosService";
 import LoadingWrapper from "../../../component/LoadingWrapper";
 import dateFormatter from "../../../service/dateFormatter";
 import {Table, Td, Th, Thead, Tr} from "../../../style/table";
+import useSortingParams from "../../../service/useSortingParams";
 
 const UsersList = () => {
     const axiosService = useAxiosService();
+    const generateSortingParams = useSortingParams();
+
     const [users, setUsers] = React.useState(null);
 
     React.useEffect(() => {
-        axiosService.get("/api/users", (response) => setUsers(response.data))
+        getUsersRequest();
     }, [])
 
+    function getUsersRequest(params = {}){
+        axiosService.get("/api/users", (response) => setUsers(response.data), params);
+    }
+    function sortByField(fieldName){
+        const sortingParams = generateSortingParams(fieldName);
+        getUsersRequest(sortingParams);
+    }
 
     return <LoadingWrapper loaded={users}>
         <Container>
             {users && <Table>
                 <Thead>
-                    <Th>Id:</Th>
-                    <Th>Login:</Th>
-                    <Th>Email:</Th>
-                    <Th>Rola:</Th>
-                    <Th>Potwierdzenie adresu email:</Th>
-                    <Th>Data utowrzenia:</Th>
+                    <Th onClick={()=>sortByField("id")}>Id:</Th>
+                    <Th onClick={()=>sortByField("username")}>Login:</Th>
+                    <Th onClick={()=>sortByField("email")}>Email:</Th>
+                    <Th onClick={()=>sortByField("userRole")}>Rola:</Th>
+                    <Th onClick={()=>sortByField("confirmed")}>Potwierdzenie adresu email:</Th>
+                    <Th onClick={()=>sortByField("createdAt")}>Data utowrzenia:</Th>
                 </Thead>
                 <tbody>
                 {
