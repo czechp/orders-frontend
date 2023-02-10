@@ -10,12 +10,12 @@ export const Thead = styled.thead`
 `;
 
 export const Th = styled.th`
-  padding: 1rem 0 1rem 0;
+  padding: 1rem .5rem 1rem .5rem;
   margin: 0;
   &:hover{
     cursor: pointer;
-    background-color: ${colors.main};
-    color: ${colors.background};
+    background-color: ${colors.background};
+    color: ${colors.main};
   }
 `;
 
