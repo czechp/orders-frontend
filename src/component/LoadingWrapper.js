@@ -11,7 +11,8 @@ const LoadingWrapper = ({loaded=false, children})=>{
 const Container = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export default LoadingWrapper;
