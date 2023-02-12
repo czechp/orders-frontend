@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import React from "react";
-import LoadingSpinner from "./LoadingSpinner";
 
-const PageCmp = ({title, loaded = true, children}) => {
+const PageCmp = ({title, children}) => {
 
     return <Container>
         <Title>{title}</Title>
         <hr/>
-        {loaded ? <ContentContainer>{children}</ContentContainer> : <LoadingSpinnerWrapper><LoadingSpinner/></LoadingSpinnerWrapper>}
+        <ContentContainer>{children}</ContentContainer>
     </Container>
 }
 
@@ -20,12 +19,7 @@ const Title = styled.h1`
   text-align: left;
 `;
 
-const LoadingSpinnerWrapper = styled.div`
-  width: 100%;
-  margin-top: 15rem;
-  display: flex;
-  justify-content: center;
-`;
+
 
 const ContentContainer = styled.div`
     width: 100%;

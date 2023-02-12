@@ -12,6 +12,7 @@ const NavigationCmp = () => {
             <NavigationButton onClick={()=>navigate("/login")}>Logowanie</NavigationButton>
             <NavigationButton onClick={()=>navigate("/register")}>Rejestracja</NavigationButton>
             <NavigationButton onClick={()=>navigate("/user-confirm")}>Aktywuj konto</NavigationButton>
+            <NavigationButton onClick={()=>navigate("/users")}>Zarządzaj użytkownikami</NavigationButton>
 
         </NavigationSection>
         <NavigationSection title="Zamówienia - wszystkie">

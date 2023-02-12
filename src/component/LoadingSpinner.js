@@ -16,5 +16,7 @@ const LoadingSpinner = () => {
     </Container>
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+    margin-top: 3rem;
+`;
 export default LoadingSpinner;

@@ -15,6 +15,10 @@ function generateAuthenticationToken(login, password) {
     return window.btoa(`${login}:${password}`);
 }
 
+export function getAuthorizationToken() {
+    return storageService.read(labels.authenticationToken);
+}
+
 const useAuthenticationService = () => {
     const authContext = React.useContext(AuthenticationContext);
     const {configureAuthorizationHeader} = useAxiosService();
