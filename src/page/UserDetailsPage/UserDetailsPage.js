@@ -5,6 +5,7 @@ import LoadingWrapper from "../../component/LoadingWrapper";
 import useAxiosService from "../../service/useAxiosService";
 import InfoCmp from "../../component/InfoCmp";
 import dateFormatter from "../../service/dateFormatter";
+import UserRemoveCmp from "./component/UserRemoveCmp";
 
 const UserDetailsPage = () => {
     const {state: userData} = useLocation();
@@ -25,6 +26,7 @@ const UserDetailsPage = () => {
     React.useEffect(() => {
         if (user) {
             setUserInfo([
+                //TODO: add info about user activation
                 {label: "Login", value: user.username},
                 {label: "Email", value: user.email},
                 {label: "Rola", value: user.userRole},
@@ -37,6 +39,7 @@ const UserDetailsPage = () => {
     return <PageCmp title={`Szczegóły użytkownika - ${userData.username}`}>
         <LoadingWrapper loaded={user}>
             <InfoCmp title="Informacje o użytkowniku" data={userInfo}/>
+            <UserRemoveCmp user={user} />
         </LoadingWrapper>
     </PageCmp>
 }
