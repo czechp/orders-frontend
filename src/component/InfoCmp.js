@@ -21,6 +21,7 @@ export default InfoCmp;
 
 const Container = styled.div`
     min-width: 40%;
+    margin-bottom: 3rem;
 `;
 
 const Title = styled.h3`
