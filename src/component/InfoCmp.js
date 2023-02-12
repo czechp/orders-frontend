@@ -1,17 +1,20 @@
 import styled from "styled-components";
-import {Table, Tbody, Td, Thead, Tr} from "../style/table";
+import {Table, Tbody, Td, Th, Thead, Tr} from "../style/table";
 import React from "react";
+
 const InfoCmp = ({title, data})=>{
     return <Container>
         <Table>
             <Thead>
-                <Td colSpan={2}><Title>{title}</Title></Td>
+                <Tr>
+                    <Th colSpan={2}><Title>{title}</Title></Th>
+                </Tr>
             </Thead>
             <Tbody>
-            {data.map((row, id)=><Tr key={`${row.value}-${Math.random()}`}>
-                <Td>{row.label}</Td>
-                <Td>{row.value}</Td>
-            </Tr>)}
+                {data.map((row, id) => <Tr key={`${row.value}-${Math.random()}`}>
+                    <Td>{row.label}</Td>
+                    <Td>{row.value}</Td>
+                </Tr>)}
             </Tbody>
         </Table>
     </Container>
