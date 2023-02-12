@@ -17,7 +17,7 @@ const Button = styled.button`
   background-color: transparent;
   border-radius: 1rem;
   font-size: larger;
-
+  margin-bottom: 1rem;
   &:hover {
     cursor: pointer;
     background-color: ${props => props.color};
