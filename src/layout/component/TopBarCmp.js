@@ -31,7 +31,7 @@ const UserInfo = ()=> {
     return <UserInfoContainer>
         <UserInfoRow>{login}</UserInfoRow>
         <UserInfoRow>{email}</UserInfoRow>
-        <ButtonCmp title="Wyloguj" style={{fontSize: "smaller"}} onClick={logout}/>
+        <ButtonCmp title="Wyloguj" style={{fontSize: "smaller", marginBottom: 0}} onClick={logout}/>
     </UserInfoContainer>
 }
 
@@ -48,10 +48,10 @@ const Container = styled.div`
 
 const TitleContainer = styled.div``;
 const Title = styled.h1`
-  margin-bottom: 0px;
+  margin-bottom: 0;
 `;
 const Subtitle = styled.h2`
-  margin-top: 0px;
+  margin-top: 0;
   font-style: italic;
 `;
 const LoginSectionContainer = styled.div`
@@ -68,8 +68,9 @@ const UserInfoContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: start;
   justify-content: center;
+  align-items: center;
+  font-size: smaller;
 `;
 const UserInfoRow = styled.p`
   margin: 0 0 .5rem 0;
