@@ -39,6 +39,11 @@ const useAxiosService = () => {
                 .then(successHandler)
                 .catch(errorHandler)
         }),
+        delete: ((endpoint, successHandler, params={}, errorHandler = handleError) => {
+            createBackendInstance().delete(endpoint, {params})
+                .then(successHandler)
+                .catch(errorHandler)
+        }),
         configureAuthorizationHeader: (authorizationHeader) => {
             createBackendInstance().interceptors.request.use((config) => {
                 if (authorizationHeader)
