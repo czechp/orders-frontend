@@ -39,6 +39,11 @@ const useAxiosService = () => {
                 .then(successHandler)
                 .catch(errorHandler)
         }),
+        patch: ((endpoint, body, successHandler, params={}, errorHandler = handleError) => {
+            createBackendInstance().patch(endpoint, body, {params})
+                .then(successHandler)
+                .catch(errorHandler)
+        }),
         delete: ((endpoint, successHandler, params={}, errorHandler = handleError) => {
             createBackendInstance().delete(endpoint, {params})
                 .then(successHandler)
