@@ -35,7 +35,7 @@ const UsersList = () => {
                         <Th onClick={() => sortByField("email")}>Email:</Th>
                         <Th onClick={() => sortByField("userRole")}>Rola:</Th>
                         <Th onClick={() => sortByField("confirmed")}>Potwierdzenie adresu email:</Th>
-                        <Th onClick={() => sortByField("confirmedByAdmin")}>Potwierdzenie administrator:</Th>
+                        <Th onClick={() => sortByField("confirmedByAdmin")}>Konto aktywne:</Th>
                         <Th onClick={() => sortByField("createdAt")}>Data utowrzenia:</Th>
                     </Tr>
                 </Thead>

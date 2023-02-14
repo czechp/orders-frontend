@@ -6,6 +6,7 @@ import useAxiosService from "../../service/useAxiosService";
 import InfoCmp from "../../component/InfoCmp";
 import dateFormatter from "../../service/dateFormatter";
 import UserRemoveCmp from "./component/UserRemoveCmp";
+import UserConfirmByAdminCmp from "./component/UserConfirmByAdminCmp";
 
 const UserDetailsPage = () => {
     const {state: userData} = useLocation();
@@ -30,7 +31,7 @@ const UserDetailsPage = () => {
                 {label: "Email", value: user.email},
                 {label: "Rola", value: user.userRole},
                 {label: "Potwierdzenie adresu email", value: user.confirmed ? "TAK":"NIE"},
-                {label: "Potwierdzenie administratora", value: user.confirmedByAdmin ? "TAK":"NIE"},
+                {label: "Konto aktywne", value: user.confirmedByAdmin ? "TAK":"NIE"},
                 {label: "Data utowrzenia",  value: dateFormatter.toFormattedDate(user.createdAt)}
             ]);
         }
@@ -39,6 +40,7 @@ const UserDetailsPage = () => {
     return <PageCmp title={`Szczegóły użytkownika - ${userData.username}`}>
         <LoadingWrapper loaded={user}>
             <InfoCmp title="Informacje o użytkowniku" data={userInfo}/>
+            <UserConfirmByAdminCmp user={user}/>
             <UserRemoveCmp user={user} />
         </LoadingWrapper>
     </PageCmp>
