@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import ButtonCmp from "../../../component/ButtonCmp";
 import FormCmp from "../../../component/FormCmp";
 import useModalWindow from "../../../service/useModalWindow";
@@ -40,8 +39,5 @@ const UserConfirmByAdminCmp = ({user, reloadUser}) => {
     </FormCmp>
 }
 
-const Container = styled.div`
-  width: 100%;
-`;
 
 export default UserConfirmByAdminCmp;

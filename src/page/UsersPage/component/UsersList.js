@@ -13,17 +13,20 @@ const UsersList = () => {
     const navigate = useNavigate();
     const [users, setUsers] = React.useState(null);
 
-    React.useEffect(() => {
-        getUsersRequest();
-    }, [])
 
-    function getUsersRequest(params = {}){
-        axiosService.get("/api/users", (response) => setUsers(response.data), params);
-    }
-    function sortByField(fieldName){
+    const getUserRequestCallback = React.useCallback(() => {
+        axiosService.get("/api/users", (response) => setUsers(response.data), {});
+    }, [axiosService]);
+
+    function sortByField(fieldName) {
         const sortingParams = generateSortingParams(fieldName);
-        getUsersRequest(sortingParams);
+        axiosService.get("/api/users", (response) => setUsers(response.data), sortingParams);
     }
+
+    React.useEffect(() => {
+        getUserRequestCallback();
+    }, [getUserRequestCallback])
+
 
     return <LoadingWrapper loaded={users}>
         <Container>
