@@ -26,11 +26,11 @@ const UserDetailsPage = () => {
     React.useEffect(() => {
         if (user) {
             setUserInfo([
-                //TODO: add info about user activation
                 {label: "Login", value: user.username},
                 {label: "Email", value: user.email},
                 {label: "Rola", value: user.userRole},
                 {label: "Potwierdzenie adresu email", value: user.confirmed ? "TAK":"NIE"},
+                {label: "Potwierdzenie administratora", value: user.confirmedByAdmin ? "TAK":"NIE"},
                 {label: "Data utowrzenia",  value: dateFormatter.toFormattedDate(user.createdAt)}
             ]);
         }

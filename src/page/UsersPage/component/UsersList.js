@@ -35,6 +35,7 @@ const UsersList = () => {
                         <Th onClick={() => sortByField("email")}>Email:</Th>
                         <Th onClick={() => sortByField("userRole")}>Rola:</Th>
                         <Th onClick={() => sortByField("confirmed")}>Potwierdzenie adresu email:</Th>
+                        <Th onClick={() => sortByField("confirmedByAdmin")}>Potwierdzenie administrator:</Th>
                         <Th onClick={() => sortByField("createdAt")}>Data utowrzenia:</Th>
                     </Tr>
                 </Thead>
@@ -51,13 +52,13 @@ const UsersList = () => {
 }
 
 const UserRow = ({user, onClick}) => {
-    //TODO: add admin activation
     return <Tr onClick={onClick}>
         <Td>{user.id}</Td>
         <Td>{user.username}</Td>
         <Td>{user.email}</Td>
         <Td>{user.userRole}</Td>
         <Td>{user.confirmed ? "TAK" : "NIE"}</Td>
+        <Td>{user.confirmedByAdmin ? "TAK" : "NIE"}</Td>
         <Td>{dateFormatter.toFormattedDate(user.createdAt)}</Td>
     </Tr>
 }
