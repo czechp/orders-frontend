@@ -40,7 +40,7 @@ const UserDetailsPage = () => {
     return <PageCmp title={`Szczegóły użytkownika - ${userData.username}`}>
         <LoadingWrapper loaded={user}>
             <InfoCmp title="Informacje o użytkowniku" data={userInfo}/>
-            <UserConfirmByAdminCmp user={user}/>
+            <UserConfirmByAdminCmp user={user} reloadUser={getUserCallback}/>
             <UserRemoveCmp user={user} />
         </LoadingWrapper>
     </PageCmp>
