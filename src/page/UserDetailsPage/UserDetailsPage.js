@@ -7,6 +7,7 @@ import InfoCmp from "../../component/InfoCmp";
 import dateFormatter from "../../service/dateFormatter";
 import UserRemoveCmp from "./component/UserRemoveCmp";
 import UserConfirmByAdminCmp from "./component/UserConfirmByAdminCmp";
+import UserAssignRoleCmp from "./component/UserAssignRoleCmp";
 
 const UserDetailsPage = () => {
     const {state: userData} = useLocation();
@@ -41,6 +42,7 @@ const UserDetailsPage = () => {
         <LoadingWrapper loaded={user}>
             <InfoCmp title="Informacje o użytkowniku" data={userInfo}/>
             <UserConfirmByAdminCmp user={user} reloadUser={getUserCallback}/>
+            <UserAssignRoleCmp user={user} reloadUser={getUserCallback}/>
             <UserRemoveCmp user={user} />
         </LoadingWrapper>
     </PageCmp>
