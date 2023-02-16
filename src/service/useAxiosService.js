@@ -29,8 +29,8 @@ const useAxiosService = () => {
     }
 
     const [axiosBackendHook] = useState({
-        post: ((endpoint, body, successHandler, errorHandler = handleError) => {
-            createBackendInstance().post(endpoint, body)
+        post: ((endpoint, body, successHandler, params={}, errorHandler = handleError) => {
+            createBackendInstance().post(endpoint, body, {params})
                 .then(successHandler)
                 .catch(errorHandler)
         }),
