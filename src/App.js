@@ -18,6 +18,7 @@ import ForbiddenPage from "./page/ForbiddenPage/ForbiddenPage";
 import AdminGuard from "./guard/AdminGuard";
 import UsersPage from "./page/UsersPage/UsersPage";
 import UserDetailsPage from "./page/UserDetailsPage/UserDetailsPage";
+import RestorePasswordPage from "./page/RestorePasswordPage/RestorePasswordPage";
 
 export const StatementContext = React.createContext();
 export const AuthenticationContext = React.createContext();
@@ -44,6 +45,7 @@ function App() {
                                     <Route path={"/user-details"} element={<AdminGuard><UserDetailsPage/></AdminGuard>} />
                                     <Route path={"/user-confirm"} element={<ConfirmUserPage/>}/>
                                     <Route path={"/login"} element={<LoginPage/>}/>
+                                    <Route path={"/restore-password"} element={<RestorePasswordPage/>}/>
                                     <Route path={"/forbidden"} element={<ForbiddenPage/>}/>
                                 </Routes>
                             </Content>
