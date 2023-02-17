@@ -20,7 +20,7 @@ const GenerateRestorePasswordTokenCmp = () => {
     }
 
     const sendRequestToGenerateToken = () => {
-        axiosService.post("/users/password-restore", {}, tokenGenerated, {email});
+        axiosService.post("/api/users/password-restore", {}, tokenGenerated, {email});
     }
     const generateRestoreTokenOnClick = () => {
         if (emailValidator.validate(email)) {
