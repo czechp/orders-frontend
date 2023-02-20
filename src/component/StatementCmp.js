@@ -46,7 +46,7 @@ const Container = styled.div`
   bottom: .5rem;
   right: .5rem;
   width: 40vw;
-
+  z-index: 999;
 
 `;
 const StatementContainer = styled.div`
