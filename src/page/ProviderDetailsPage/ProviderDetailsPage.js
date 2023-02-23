@@ -4,6 +4,7 @@ import {useLocation} from "react-router-dom";
 import useAxiosService from "../../service/useAxiosService";
 import LoadingWrapper from "../../component/LoadingWrapper";
 import ProviderDetailsCmp from "./component/ProviderDetailsCmp";
+import ProviderRemoveCmp from "./component/ProviderRemoveCmp";
 
 const ProviderDetailsPage = () => {
     const {state: providerData} = useLocation();
@@ -11,7 +12,7 @@ const ProviderDetailsPage = () => {
     const [provider, setProvider] = React.useState();
     const getProviderCallback = React.useCallback(() => {
         axiosService.get(`/api/providers/${providerData.id}`, (response) => setProvider(response.data));
-    }, [axiosService]);
+    }, [axiosService, providerData]);
 
     React.useEffect(() => {
         getProviderCallback();
@@ -20,6 +21,7 @@ const ProviderDetailsPage = () => {
         <LoadingWrapper loaded={provider}>
             {provider && <>
                 <ProviderDetailsCmp provider={provider} />
+                <ProviderRemoveCmp provider={provider} />
             </>}
         </LoadingWrapper>
     </PageCmp>

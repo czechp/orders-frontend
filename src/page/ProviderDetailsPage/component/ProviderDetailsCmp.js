@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import InfoCmp from "../../../component/InfoCmp";
 import dateFormatter from "../../../service/dateFormatter";
 const ProviderDetailsCmp = ({provider}) => {
