@@ -5,6 +5,7 @@ import useAxiosService from "../../service/useAxiosService";
 import LoadingWrapper from "../../component/LoadingWrapper";
 import ProviderDetailsCmp from "./component/ProviderDetailsCmp";
 import ProviderRemoveCmp from "./component/ProviderRemoveCmp";
+import ProviderUpdateCmp from "./component/ProviderUpdateCmp";
 
 const ProviderDetailsPage = () => {
     const {state: providerData} = useLocation();
@@ -21,6 +22,7 @@ const ProviderDetailsPage = () => {
         <LoadingWrapper loaded={provider}>
             {provider && <>
                 <ProviderDetailsCmp provider={provider} />
+                <ProviderUpdateCmp provider={provider} reload={getProviderCallback}/>
                 <ProviderRemoveCmp provider={provider} />
             </>}
         </LoadingWrapper>
