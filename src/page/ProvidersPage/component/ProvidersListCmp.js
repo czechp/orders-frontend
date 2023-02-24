@@ -6,7 +6,7 @@ import dateFormatter from "../../../service/dateFormatter";
 import {useNavigate} from "react-router-dom";
 import useSortingParams from "../../../service/useSortingParams";
 
-const ProvidersListCmp = () => {
+const ProvidersListCmp = ({reload}) => {
     const axiosService = useAxiosService();
     const generateSortingParams = useSortingParams();
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ const ProvidersListCmp = () => {
 
     React.useEffect(() => {
         getProvidersCallback();
-    }, [getProvidersCallback]);
+    }, [getProvidersCallback, reload]);
     return <LoadingWrapper loaded={providers}>
         {providers && <Table>
             <Thead>
