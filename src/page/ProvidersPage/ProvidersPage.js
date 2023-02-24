@@ -4,6 +4,7 @@ import ProvidersListCmp from "./component/ProvidersListCmp";
 import ProviderCreateCmp from "./component/ProviderCreateCmp";
 
 const ProvidersPage = () => {
+    // eslint-disable-next-line no-unused-vars
     const [reload, setReload] = React.useState(false);
     const reloadPage = () => setReload((prevState) => !prevState);
 
