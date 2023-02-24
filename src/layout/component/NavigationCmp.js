@@ -29,7 +29,7 @@ const NavigationCmp = () => {
         <NavigationSection title="Elementy">
             <NavigationButton>Elementy</NavigationButton>
             <NavigationButton>Producenci</NavigationButton>
-            <NavigationButton>Kategorie</NavigationButton>
+            <NavigationButton onClick={()=>navigate("/categories")}>Kategorie</NavigationButton>
             <NavigationButton onClick={()=>navigate("/providers")}>Dostawcy</NavigationButton>
         </NavigationSection>
         <NavigationSection title="Realizuj">
