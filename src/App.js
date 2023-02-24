@@ -19,6 +19,8 @@ import AdminGuard from "./guard/AdminGuard";
 import UsersPage from "./page/UsersPage/UsersPage";
 import UserDetailsPage from "./page/UserDetailsPage/UserDetailsPage";
 import RestorePasswordPage from "./page/RestorePasswordPage/RestorePasswordPage";
+import ProvidersPage from "./page/ProvidersPage/ProvidersPage";
+import ProviderDetailsPage from "./page/ProviderDetailsPage/ProviderDetailsPage";
 
 export const StatementContext = React.createContext();
 export const AuthenticationContext = React.createContext();
@@ -40,6 +42,8 @@ function App() {
                                 <Routes>
                                     <Route path={"/"} element={<LoginGuard><HomePage/></LoginGuard>}/>
                                     <Route path={"/orders-all"} element={<LoginGuard><OrdersAll/></LoginGuard>}/>
+                                    <Route path={"/providers"} element={<LoginGuard><ProvidersPage/></LoginGuard>} />
+                                    <Route path={"/provider-details"} element={<LoginGuard><ProviderDetailsPage/></LoginGuard>} />
                                     <Route path={"/register"} element={<RegisterPage/>}/>
                                     <Route path={"/users"} element={<AdminGuard><UsersPage/></AdminGuard>} />
                                     <Route path={"/user-details"} element={<AdminGuard><UserDetailsPage/></AdminGuard>} />

@@ -18,6 +18,7 @@ const Button = styled.button`
   border-radius: 1rem;
   font-size: larger;
   margin-bottom: 1rem;
+  margin-top: 1rem;
   &:hover {
     cursor: pointer;
     background-color: ${props => props.color};
