@@ -31,7 +31,7 @@ const UserInfo = ()=> {
     return <UserInfoContainer>
         <UserInfoRow>{login}</UserInfoRow>
         <UserInfoRow>{email}</UserInfoRow>
-        <ButtonCmp title="Wyloguj" style={{fontSize: "smaller", marginBottom: 0}} onClick={logout}/>
+        <ButtonCmp title="Wyloguj" style={{fontSize: "smaller", marginBottom: 0, marginTop:0}} onClick={logout}/>
     </UserInfoContainer>
 }
 
