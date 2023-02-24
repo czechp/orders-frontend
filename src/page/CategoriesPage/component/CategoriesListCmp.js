@@ -11,13 +11,13 @@ const CategoriesListCmp = ({reload}) => {
     const generateSortingParams = useSortingParams();
     const navigate = useNavigate();
     const [categories, setCategories] = React.useState();
-    const getProvidersCallback = React.useCallback(() => {
+    const getCategoriesCallback = React.useCallback(() => {
         axiosService.get("/api/categories", (response) => setCategories(response.data));
     }, [axiosService]);
 
-    const navigateToDetails = (provider) => {
-        const providerData = {id: provider.id, name: provider.name};
-        navigate("/category-details", {state: providerData});
+    const navigateToDetails = (category) => {
+        const categoryData = {id: category.id, name: category.name};
+        navigate("/category-details", {state: categoryData});
     }
 
     const sortByField = (fieldName) => {
@@ -27,8 +27,8 @@ const CategoriesListCmp = ({reload}) => {
     }
 
     React.useEffect(() => {
-        getProvidersCallback();
-    }, [getProvidersCallback, reload]);
+        getCategoriesCallback();
+    }, [getCategoriesCallback, reload]);
     return <LoadingWrapper loaded={categories}>
         {categories && <Table>
             <Thead>
@@ -41,9 +41,9 @@ const CategoriesListCmp = ({reload}) => {
             </Thead>
             <Tbody>
                 {
-                    categories.map((provider, index) => <CategoryRow onClick={() => navigateToDetails(provider)}
-                                                                    key={`${provider.id}-${Math.random()}`}
-                                                                    provider={provider}/>)
+                    categories.map((category, index) => <CategoryRow onClick={() => navigateToDetails(category)}
+                                                                    key={`${category.id}-${Math.random()}`}
+                                                                    provider={category}/>)
                 }
             </Tbody>
         </Table>}

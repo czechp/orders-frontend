@@ -7,7 +7,7 @@ import InputTextCmp from "../../../component/InputTextCmp";
 import colors from "../../../style/colors";
 import useAxiosService from "../../../service/useAxiosService";
 import {StatementContext} from "../../../App";
-import {categoryNameValidator} from "../validator/categoryValidator";
+import {categoryNameValidator} from "../../CategoryDetailsPage/validator/categoryNameValidator";
 
 const CategoryCreateCmp = ({reload}) => {
     const modalWindowHandler = useModalWindow();
