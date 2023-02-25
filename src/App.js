@@ -24,6 +24,7 @@ import ProviderDetailsPage from "./page/ProviderDetailsPage/ProviderDetailsPage"
 import CategoriesPage from "./page/CategoriesPage/CategoriesPage";
 import CategoryDetailsPage from "./page/CategoryDetailsPage/CategoryDetailsPage";
 import ProducersPage from "./page/ProducersPage/ProducersPage";
+import ProducerDetailsPage from "./page/ProducerDetailsPage/ProducerDetailsPage";
 
 export const StatementContext = React.createContext();
 export const AuthenticationContext = React.createContext();
@@ -50,6 +51,7 @@ function App() {
                                     <Route path={"/categories"} element={<LoginGuard><CategoriesPage/></LoginGuard>} />
                                     <Route path={"/category-details"} element={<LoginGuard><CategoryDetailsPage/></LoginGuard>} />
                                     <Route path={"/producers"} element={<LoginGuard><ProducersPage/></LoginGuard>} />
+                                    <Route path={"/producer-details"} element={<LoginGuard><ProducerDetailsPage/></LoginGuard>} />
                                     <Route path={"/register"} element={<RegisterPage/>}/>
                                     <Route path={"/users"} element={<AdminGuard><UsersPage/></AdminGuard>} />
                                     <Route path={"/user-details"} element={<AdminGuard><UserDetailsPage/></AdminGuard>} />
