@@ -4,11 +4,13 @@ import LoadingWrapper from "../../../component/LoadingWrapper";
 import useAxiosService from "../../../service/useAxiosService";
 import dateFormatter from "../../../service/dateFormatter";
 import useSortingParams from "../../../service/useSortingParams";
+import {useNavigate} from "react-router-dom";
 
 const ElementListCmp = () => {
     const [elements, setElements] = React.useState();
     const axiosService = useAxiosService();
     const sortingParams = useSortingParams();
+    const navigate = useNavigate();
 
     const getElementsRequest = React.useCallback(() => {
         axiosService.get("/api/elements", (response) => setElements(response.data));
@@ -19,6 +21,11 @@ const ElementListCmp = () => {
 
     };
 
+    const navigateToDetails = (element) => {
+        const elementData = {id: element.id};
+        navigate("/element-details", {state: elementData})
+    }
+
     React.useEffect(() => {
         getElementsRequest()
     }, [getElementsRequest]);
@@ -27,13 +34,14 @@ const ElementListCmp = () => {
             <Table>
                 <Thead>
                     <Tr>
-                        <Th onClick={()=>sortByField("id")}>Id</Th>
-                        <Th onClick={()=>sortByField("createdAt")}>Data utworzenia</Th>
-                        <Th onClick={()=>sortByField("updatedAt")}>Data modyfikacji</Th>
+                        <Th onClick={() => sortByField("id")}>Id</Th>
+                        <Th onClick={() => sortByField("createdAt")}>Data utworzenia</Th>
+                        <Th onClick={() => sortByField("updatedAt")}>Data modyfikacji</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
                     {elements.map((element, index) => <ElementRow key={`${index}-${Math.random()}`}
+                                                                  onClick={() => navigateToDetails(element)}
                                                                   element={element}/>)}
                 </Tbody>
             </Table>
@@ -41,8 +49,8 @@ const ElementListCmp = () => {
     </LoadingWrapper>
 }
 
-const ElementRow = ({element}) => {
-    return <Tr>
+const ElementRow = ({element, onClick}) => {
+    return <Tr onClick={onClick}>
         <Td>{element.id}</Td>
         <Td>{dateFormatter.toFormattedDate(element.createdAt)}</Td>
         <Td>{dateFormatter.toFormattedDate(element.updatedAt)}</Td>
