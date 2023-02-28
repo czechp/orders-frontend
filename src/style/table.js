@@ -4,7 +4,8 @@ import colors from "./colors";
 export const Table = styled.table`
     width: 100%;
     border-collapse: collapse;
-    border-bottom: .1rem solid;;
+    border-bottom: .1rem solid;
+    font-size: smaller;
 `;
 
 export const Thead = styled.thead`
