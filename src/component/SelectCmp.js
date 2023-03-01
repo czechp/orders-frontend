@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import colors from "../style/colors";
 
@@ -8,6 +9,10 @@ const SelectCmp = ({value, setValue, options = [], title}) => {
 
     const selectId = Math.random();
 
+    React.useEffect(()=>{
+        if(!value)
+            setValue(options[0] ? options[0].value : "NOT SET");
+    }, []);
     return <>
         {title && <Label htmlFor={selectId}>{title}</Label>}
         <Select id={selectId} value={value} onChange={onChange}>
