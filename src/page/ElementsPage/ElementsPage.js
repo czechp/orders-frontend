@@ -2,12 +2,11 @@ import React from "react";
 import PageCmp from "../../component/PageCmp";
 import ElementListCmp from "./component/ElementListCmp";
 import ElementCreateCmp from "../ElementDetailsPage/component/ElementCreateCmp";
-import useAxiosService from "../../service/useAxiosService";
 
 const ElementsPage = () => {
     return <PageCmp title={"Elementy"}>
-        <ElementCreateCmp />
-        <ElementListCmp />
+        <ElementCreateCmp/>
+        <ElementListCmp/>
     </PageCmp>
 }
 
