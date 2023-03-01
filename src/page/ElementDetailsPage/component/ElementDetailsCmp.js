@@ -3,7 +3,7 @@ import dateFormatter from "../../../service/dateFormatter";
 import colors from "../../../style/colors";
 import {Link} from "react-router-dom";
 
-const ElementDetails = ({element}) => {
+const ElementDetailsCmp = ({element}) => {
     const elementData = [
         {label: "id", value: element.id},
         {label: "Nazwa", value: element.name},
@@ -19,4 +19,4 @@ const ElementDetails = ({element}) => {
     return <InfoCmp title="Szczegóły elementu" data={elementData}/>
 }
 
-export default ElementDetails;
+export default ElementDetailsCmp;

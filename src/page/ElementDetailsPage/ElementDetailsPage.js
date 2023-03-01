@@ -3,7 +3,7 @@ import PageCmp from "../../component/PageCmp";
 import {useLocation} from "react-router-dom";
 import useAxiosService from "../../service/useAxiosService";
 import LoadingWrapper from "../../component/LoadingWrapper";
-import ElementDetails from "./component/ElementDetails";
+import ElementDetailsCmp from "./component/ElementDetailsCmp";
 
 const ElementDetailsPage = () => {
     const {state: elementData} = useLocation();
@@ -20,7 +20,7 @@ const ElementDetailsPage = () => {
     return <PageCmp title="Szczegóły elementu">
         <LoadingWrapper loaded={element}>
             {element && <>
-                <ElementDetails element={element} />
+                <ElementDetailsCmp element={element} />
             </>}
         </LoadingWrapper>
     </PageCmp>
