@@ -9,17 +9,26 @@ import ElementListFilterCmp from "./ElementListFilterCmp";
 
 const ElementListCmp = ({reload}) => {
     const [elements, setElements] = React.useState();
+    const [filterPattern, setFilterPattern] = React.useState("");
+    const [sortParams, setSortParams] = React.useState();
     const axiosService = useAxiosService();
     const sortingParams = useSortingParams();
     const navigate = useNavigate();
 
     const getElementsRequest = React.useCallback(() => {
-        axiosService.get("/api/elements", (response) => setElements(response.data));
-    }, [axiosService]);
+        let params = {};
+
+        if (filterPattern)
+            params = {...params, pattern: filterPattern};
+
+        if (sortParams)
+            params = {...params, ...sortParams};
+
+        axiosService.get("/api/elements", (response) => setElements(response.data), params);
+    }, [axiosService, filterPattern, sortParams]);
 
     const sortByField = (fieldName) => {
-        axiosService.get("/api/elements", (response) => setElements(response.data), sortingParams(fieldName));
-
+        setSortParams(sortingParams(fieldName));
     };
 
     const navigateToDetails = (element) => {
@@ -27,23 +36,23 @@ const ElementListCmp = ({reload}) => {
         navigate("/element-details", {state: elementData})
     }
 
-
     React.useEffect(() => {
         getElementsRequest()
     }, [getElementsRequest, reload]);
+
     return <LoadingWrapper loaded={elements}>
         {elements && <>
-            <ElementListFilterCmp />
+            <ElementListFilterCmp filterPattern={filterPattern} setFilterPattern={setFilterPattern}/>
             <Table>
                 <Thead>
                     <Tr>
                         <Th onClick={() => sortByField("id")}>Id</Th>
-                        <Th onClick={() => sortByField("elementInfoName")}>Nazwa</Th>
-                        <Th onClick={() => sortByField("elementInfoDescription")}>Opis</Th>
-                        <Th onClick={() => sortByField("elementInfoSerialNumber")}>Nr. seryjny</Th>
-                        <Th onClick={() => sortByField("elementProducerProducer")}>Producent</Th>
-                        <Th onClick={() => sortByField("elementCategoryCategory")}>Kategoria</Th>
-                        <Th onClick={() => sortByField("elementProviderProvider")}>Dostawca</Th>
+                        <Th onClick={() => sortByField("name")}>Nazwa</Th>
+                        <Th onClick={() => sortByField("description")}>Opis</Th>
+                        <Th onClick={() => sortByField("serialNumber")}>Nr. seryjny</Th>
+                        <Th onClick={() => sortByField("producer")}>Producent</Th>
+                        <Th onClick={() => sortByField("category")}>Kategoria</Th>
+                        <Th onClick={() => sortByField("provider")}>Dostawca</Th>
                         <Th>Link</Th>
 
                     </Tr>
