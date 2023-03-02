@@ -6,7 +6,7 @@ import useSortingParams from "../../../service/useSortingParams";
 import {Link, useNavigate} from "react-router-dom";
 import colors from "../../../style/colors";
 
-const ElementListCmp = () => {
+const ElementListCmp = ({reload}) => {
     const [elements, setElements] = React.useState();
     const axiosService = useAxiosService();
     const sortingParams = useSortingParams();
@@ -26,9 +26,10 @@ const ElementListCmp = () => {
         navigate("/element-details", {state: elementData})
     }
 
+
     React.useEffect(() => {
         getElementsRequest()
-    }, [getElementsRequest]);
+    }, [getElementsRequest, reload]);
     return <LoadingWrapper loaded={elements}>
         {elements && <>
             <Table>
