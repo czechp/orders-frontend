@@ -5,6 +5,7 @@ import useAxiosService from "../../../service/useAxiosService";
 import useSortingParams from "../../../service/useSortingParams";
 import {Link, useNavigate} from "react-router-dom";
 import colors from "../../../style/colors";
+import ElementListFilterCmp from "./ElementListFilterCmp";
 
 const ElementListCmp = ({reload}) => {
     const [elements, setElements] = React.useState();
@@ -32,6 +33,7 @@ const ElementListCmp = ({reload}) => {
     }, [getElementsRequest, reload]);
     return <LoadingWrapper loaded={elements}>
         {elements && <>
+            <ElementListFilterCmp />
             <Table>
                 <Thead>
                     <Tr>
