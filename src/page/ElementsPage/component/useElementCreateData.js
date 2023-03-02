@@ -58,7 +58,14 @@ const useElementCreateData = () => {
                 && this.serialNumber.validation.validate(this.serialNumber.value)
                 && this.description.value !== null
                 && this.url.validation.validate(this.url.value)
+        },
+        clear: function () {
+            setName("");
+            setSerialNumber("");
+            setDescription("");
+            setUrl("");
         }
+
     }
 }
 
