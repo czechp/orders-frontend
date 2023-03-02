@@ -47,7 +47,6 @@ const Container = styled.div`
   right: .5rem;
   width: 40vw;
   z-index: 999;
-
 `;
 const StatementContainer = styled.div`
   font-size: x-large;
@@ -59,8 +58,7 @@ const StatementContainer = styled.div`
   border-radius: 10px;
   border: 0.25rem solid;
   padding: 3rem 5rem;
-  
-
+  background-color: ${colors.background};
 `;
 
 const Content = styled.span`
