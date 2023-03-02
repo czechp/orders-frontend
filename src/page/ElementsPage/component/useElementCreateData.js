@@ -34,7 +34,7 @@ const useElementCreateData = () => {
             value: url,
             setValue: setUrl,
             validation: {
-                message: "Url musi mieć przynajmniej 5 znaki",
+                message: "Url musi mieć przynajmniej 5 znaków",
                 validate: (text) => text.length >= 5
             }
         },
@@ -49,6 +49,15 @@ const useElementCreateData = () => {
         provider: {
             value: providerId,
             setProvider: setProviderId
+        },
+        validateAllData: function () {
+            return this.producer.value !== null
+                && this.category.value !== null
+                && this.provider.value !== null
+                && this.name.validation.validate(this.name.value)
+                && this.serialNumber.validation.validate(this.serialNumber.value)
+                && this.description.value !== null
+                && this.url.validation.validate(this.url.value)
         }
     }
 }
