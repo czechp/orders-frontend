@@ -12,7 +12,7 @@ const ElementModifyCmp = ({element, reload}) => {
         <ModalWindowCmp modalHandler={modalWindowHandler}
                         title={`Modyfikacja elementu: ${element.name}`}
         >
-            <ElementModifyInfoCmp element={element} closeModal={modalWindowHandler.hideModalWindow} />
+            <ElementModifyInfoCmp element={element} closeModal={modalWindowHandler.hideModalWindow} reload={reload} />
         </ModalWindowCmp>
     </FormCmp>
 }

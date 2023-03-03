@@ -7,7 +7,7 @@ import colors from "../../../style/colors";
 import {StatementContext} from "../../../App";
 import useAxiosService from "../../../service/useAxiosService";
 
-const ElementModifyInfoCmp = ({element, closeModal}) => {
+const ElementModifyInfoCmp = ({element, closeModal, reload}) => {
     const {showInfo} = React.useContext(StatementContext);
     const axiosService = useAxiosService();
 
@@ -27,6 +27,7 @@ const ElementModifyInfoCmp = ({element, closeModal}) => {
     function infoUpdated() {
         showInfo("Nowe dane zostały zapisane");
         closeModal();
+        reload();
     }
 
     function updateInfoRequest() {
