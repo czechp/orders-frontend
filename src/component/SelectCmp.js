@@ -9,10 +9,10 @@ const SelectCmp = ({value, setValue, options = [], title}) => {
 
     const selectId = Math.random();
 
-    React.useEffect(()=>{
-        if(!value)
+    React.useEffect(() => {
+        if (!value)
             setValue(options[0] ? options[0].value : "NOT SET");
-    }, []);
+    }, [value, setValue, options]);
     return <>
         {title && <Label htmlFor={selectId}>{title}</Label>}
         <Select id={selectId} value={value} onChange={onChange}>

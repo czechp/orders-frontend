@@ -4,7 +4,6 @@ import colors from "../style/colors";
 import ButtonCmp from "./ButtonCmp";
 
 const ModalWindowCmp = ({title, modalHandler, children}) => {
-    const [visibility, setVisibility] = React.useState(true);
     return modalHandler.visibility ? <Container>
         <ContentContainer>
             <ModalTitle>{title}</ModalTitle>

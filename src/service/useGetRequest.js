@@ -7,7 +7,7 @@ const useGetRequest = (endpoint) => {
     const [elements, setElements] = React.useState([]);
     const getProducersRequest = React.useCallback(() => {
         axiosService.get(endpoint, (response) => setElements(response.data));
-    }, [axiosService]);
+    }, [axiosService, endpoint]);
 
     React.useEffect(() => {
         getProducersRequest()
