@@ -5,19 +5,13 @@ import useAxiosService from "../../service/useAxiosService";
 import LoadingWrapper from "../../component/LoadingWrapper";
 import ElementDetailsCmp from "./component/ElementDetailsCmp";
 import ElementModifyCmp from "./component/ElementModifyCmp";
+import useGetRequest from "../../service/useGetRequest";
 
 const ElementDetailsPage = () => {
     const {state: elementData} = useLocation();
     const axiosService = useAxiosService();
-    const [element, setElement] = React.useState();
+    const {result:element} = useGetRequest(`/api/elements/${elementData.id}`, true);
 
-    const getElementRequest = React.useCallback(() => {
-        axiosService.get(`/api/elements/${elementData.id}`, (response) => setElement(response.data))
-    }, [axiosService, elementData]);
-
-    React.useEffect(() => {
-        getElementRequest();
-    }, [getElementRequest])
     return <PageCmp title="Szczegóły elementu">
         <LoadingWrapper loaded={element}>
             {element && <>

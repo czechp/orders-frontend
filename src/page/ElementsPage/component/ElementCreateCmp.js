@@ -16,9 +16,9 @@ const ElementCreateCmp = ({reload}) => {
     const axiosService = useAxiosService();
     const modalWindowHandler = useModalWindow();
     const createData = useElementCreateData();
-    const producers = useGetRequest("/api/producers");
-    const categories = useGetRequest("/api/categories");
-    const providers = useGetRequest("/api/providers");
+    const {result: producers} = useGetRequest("/api/producers");
+    const {result: categories} = useGetRequest("/api/categories");
+    const {result: providers} = useGetRequest("/api/providers");
 
     function generateSelectArray(data) {
         return data.map((el) => {
