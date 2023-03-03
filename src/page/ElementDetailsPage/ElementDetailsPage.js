@@ -4,6 +4,7 @@ import {useLocation} from "react-router-dom";
 import useAxiosService from "../../service/useAxiosService";
 import LoadingWrapper from "../../component/LoadingWrapper";
 import ElementDetailsCmp from "./component/ElementDetailsCmp";
+import ElementModifyCmp from "./component/ElementModifyCmp";
 
 const ElementDetailsPage = () => {
     const {state: elementData} = useLocation();
@@ -21,6 +22,7 @@ const ElementDetailsPage = () => {
         <LoadingWrapper loaded={element}>
             {element && <>
                 <ElementDetailsCmp element={element} />
+                <ElementModifyCmp element={element} />
             </>}
         </LoadingWrapper>
     </PageCmp>
