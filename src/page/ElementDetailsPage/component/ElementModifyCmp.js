@@ -4,6 +4,7 @@ import colors from "../../../style/colors";
 import useModalWindow from "../../../service/useModalWindow";
 import ModalWindowCmp from "../../../component/ModalWindowCmp";
 import ElementModifyInfoCmp from "./ElementModifyInfoCmp";
+import ElementModifyProviderCmp from "./ElementModifyProviderCmp";
 
 const ElementModifyCmp = ({element, reload}) => {
     const modalWindowHandler = useModalWindow();
@@ -12,7 +13,8 @@ const ElementModifyCmp = ({element, reload}) => {
         <ModalWindowCmp modalHandler={modalWindowHandler}
                         title={`Modyfikacja elementu: ${element.name}`}
         >
-            <ElementModifyInfoCmp element={element} closeModal={modalWindowHandler.hideModalWindow} reload={reload} />
+            <ElementModifyInfoCmp element={element} closeModal={modalWindowHandler.hideModalWindow} reload={reload}/>
+            <ElementModifyProviderCmp element={element} reload={reload} closeModalWindow={modalWindowHandler.hideModalWindow}/>
         </ModalWindowCmp>
     </FormCmp>
 }
