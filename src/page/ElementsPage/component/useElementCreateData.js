@@ -1,10 +1,10 @@
 import React from "react";
 
-const useElementCreateData = () => {
-    const [name, setName] = React.useState("")
-    const [serialNumber, setSerialNumber] = React.useState("")
-    const [description, setDescription] = React.useState("")
-    const [url, setUrl] = React.useState("")
+const useElementCreateData = (nameInit = "", serialNumberInit = "", descriptionInit = "", urlInit = "") => {
+    const [name, setName] = React.useState(nameInit)
+    const [serialNumber, setSerialNumber] = React.useState(serialNumberInit)
+    const [description, setDescription] = React.useState(descriptionInit)
+    const [url, setUrl] = React.useState(urlInit)
     const [producerId, setProducerId] = React.useState(0);
     const [categoryId, setCategoryId] = React.useState(0);
     const [providerId, setProviderId] = React.useState(0);
