@@ -4,7 +4,7 @@ import colors from "../../../style/colors";
 import useModalWindow from "../../../service/useModalWindow";
 import ModalWindowCmp from "../../../component/ModalWindowCmp";
 import ElementModifyInfoCmp from "./ElementModifyInfoCmp";
-import ElementModifyProviderCmp from "./ElementModifyProviderCmp";
+import ElementModifyFieldCmp from "./ElementModifyFieldCmp";
 
 const ElementModifyCmp = ({element, reload}) => {
     const modalWindowHandler = useModalWindow();
@@ -14,7 +14,22 @@ const ElementModifyCmp = ({element, reload}) => {
                         title={`Modyfikacja elementu: ${element.name}`}
         >
             <ElementModifyInfoCmp element={element} closeModal={modalWindowHandler.hideModalWindow} reload={reload}/>
-            <ElementModifyProviderCmp element={element} reload={reload} closeModalWindow={modalWindowHandler.hideModalWindow}/>
+            <ElementModifyFieldCmp label={"Dostawca"}
+                                   element={element}
+                                   reload={reload}
+                                   closeModalWindow={modalWindowHandler.hideModalWindow}
+                                   sourceEndpoint="/api/providers"
+                                   targetEndpoint="/api/elements/provider"
+                                   fieldName={"provider"}
+            />
+            <ElementModifyFieldCmp label={"Kategoria"}
+                                   element={element}
+                                   reload={reload}
+                                   closeModalWindow={modalWindowHandler.hideModalWindow}
+                                   sourceEndpoint="/api/categories"
+                                   targetEndpoint="/api/elements/category"
+                                   fieldName={"category"}
+            />
         </ModalWindowCmp>
     </FormCmp>
 }
