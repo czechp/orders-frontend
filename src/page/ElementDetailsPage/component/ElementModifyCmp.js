@@ -30,6 +30,14 @@ const ElementModifyCmp = ({element, reload}) => {
                                    targetEndpoint="/api/elements/category"
                                    fieldName={"category"}
             />
+            <ElementModifyFieldCmp label={"Producent"}
+                                   element={element}
+                                   reload={reload}
+                                   closeModalWindow={modalWindowHandler.hideModalWindow}
+                                   sourceEndpoint="/api/producers"
+                                   targetEndpoint="/api/elements/producer"
+                                   fieldName={"producer"}
+            />
         </ModalWindowCmp>
     </FormCmp>
 }
