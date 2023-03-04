@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 const ElementDetailsCmp = ({element}) => {
     const elementData = [
-        {label: "id", value: element.id},
+        {label: "Id", value: element.id},
         {label: "Nazwa", value: element.name},
         {label: "Opis", value: element.description},
         {label: "Nr.seryjny", value: element.serialNumber},
@@ -13,7 +13,9 @@ const ElementDetailsCmp = ({element}) => {
         {label: "Producent", value: element.producer},
         {label: "Kategoria", value: element.category},
         {label: "Dostawca", value: element.provider},
+        {label: "Utworzony przez", value: element.createdBy},
         {label: "Data utworzenia", value: dateFormatter.toFormattedDate(element.createdAt)},
+        {label: "Zmodyfikowany przez", value: element.modifiedBy},
         {label: "Data modyfikacji", value: dateFormatter.toFormattedDate(element.updatedAt)},
     ]
     return <InfoCmp title="Szczegóły elementu" data={elementData}/>
