@@ -3,17 +3,16 @@ import {Table, Tbody, Td, Th, Thead, Tr} from "../../../style/table";
 import LoadingWrapper from "../../../component/LoadingWrapper";
 import useAxiosService from "../../../service/useAxiosService";
 import useSortingParams from "../../../service/useSortingParams";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import colors from "../../../style/colors";
 import ElementListFilterCmp from "./ElementListFilterCmp";
 
-const ElementListCmp = ({reload, url, withFilter = false}) => {
+const ElementListCmp = ({reload, url, withFilter = false, rowOnClick = () => {}}) => {
     const [elements, setElements] = React.useState();
     const [filterPattern, setFilterPattern] = React.useState("");
     const [sortParams, setSortParams] = React.useState();
     const axiosService = useAxiosService();
     const sortingParams = useSortingParams();
-    const navigate = useNavigate();
 
     const getElementsRequest = React.useCallback(() => {
         let params = {};
@@ -31,10 +30,6 @@ const ElementListCmp = ({reload, url, withFilter = false}) => {
         setSortParams(sortingParams(fieldName));
     };
 
-    const navigateToDetails = (element) => {
-        const elementData = {id: element.id};
-        navigate("/element-details", {state: elementData})
-    }
 
     React.useEffect(() => {
         getElementsRequest()
@@ -61,7 +56,7 @@ const ElementListCmp = ({reload, url, withFilter = false}) => {
                 </Thead>
                 <Tbody>
                     {elements.map((element, index) => <ElementRow key={`${index}-${Math.random()}`}
-                                                                  onClick={() => navigateToDetails(element)}
+                                                                  onClick={() => rowOnClick(element)}
                                                                   element={element}/>)}
                 </Tbody>
             </Table>
