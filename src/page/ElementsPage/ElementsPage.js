@@ -12,7 +12,7 @@ const ElementsPage = () => {
 
     return <PageCmp title={"Elementy"}>
         <ElementCreateCmp reload={reloadPage}/>
-        <ElementListCmp reload={reload}/>
+        <ElementListCmp reload={reload} url={"/api/elements"} withFilter={true}/>
     </PageCmp>
 }
 

@@ -7,7 +7,7 @@ import {Link, useNavigate} from "react-router-dom";
 import colors from "../../../style/colors";
 import ElementListFilterCmp from "./ElementListFilterCmp";
 
-const ElementListCmp = ({reload}) => {
+const ElementListCmp = ({reload, url, withFilter = false}) => {
     const [elements, setElements] = React.useState();
     const [filterPattern, setFilterPattern] = React.useState("");
     const [sortParams, setSortParams] = React.useState();
@@ -24,7 +24,7 @@ const ElementListCmp = ({reload}) => {
         if (sortParams)
             params = {...params, ...sortParams};
 
-        axiosService.get("/api/elements", (response) => setElements(response.data), params);
+        axiosService.get(url, (response) => setElements(response.data), params);
     }, [axiosService, filterPattern, sortParams]);
 
     const sortByField = (fieldName) => {
@@ -42,7 +42,9 @@ const ElementListCmp = ({reload}) => {
 
     return <LoadingWrapper loaded={elements}>
         {elements && <>
-            <ElementListFilterCmp filterPattern={filterPattern} setFilterPattern={setFilterPattern}/>
+            {withFilter &&
+                <ElementListFilterCmp filterPattern={filterPattern} setFilterPattern={setFilterPattern}/>
+            }
             <Table>
                 <Thead>
                     <Tr>

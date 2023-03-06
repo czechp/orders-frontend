@@ -6,6 +6,7 @@ import LoadingWrapper from "../../component/LoadingWrapper";
 import ElementDetailsCmp from "./component/ElementDetailsCmp";
 import ElementModifyCmp from "./component/ElementModifyCmp";
 import useGetRequest from "../../service/useGetRequest";
+import AssociatedElementsCmp from "./component/AssociatedElementsCmp";
 
 const ElementDetailsPage = () => {
     const {state: elementData} = useLocation();
@@ -17,6 +18,7 @@ const ElementDetailsPage = () => {
             {element && <>
                 <ElementDetailsCmp element={element} />
                 <ElementModifyCmp element={element} reload={reload} />
+                <AssociatedElementsCmp element={element} />
             </>}
         </LoadingWrapper>
     </PageCmp>
