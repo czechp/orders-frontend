@@ -13,6 +13,7 @@ const AssociatedElementsCmp = ({element}) => {
     };
 
     return <Container>
+        <Title>Powiązane elementy</Title>
         <ElementListCmp reload={() => {
         }} url={`api/elements/associated-elements/${element.id}`} rowOnClick={rowOnClick}/>
         <AssociatedElementRemoveCmp modalWindowHandler={modalWindowHandler} element={elementToRemove} elementParentId={element.id}/>
@@ -22,4 +23,6 @@ const AssociatedElementsCmp = ({element}) => {
 const Container = styled.div`
   width: 100%;
 `;
+
+const Title = styled.h3``;
 export default AssociatedElementsCmp;
