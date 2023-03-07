@@ -3,6 +3,7 @@ import ModalWindowCmp from "../../../component/ModalWindowCmp";
 import ButtonCmp from "../../../component/ButtonCmp";
 import useAxiosService from "../../../service/useAxiosService";
 import {StatementContext} from "../../../App";
+import colors from "../../../style/colors";
 
 const AssociatedElementRemoveCmp = ({modalWindowHandler, element, elementParentId}) => {
     const axiosService = useAxiosService();
@@ -19,7 +20,7 @@ const AssociatedElementRemoveCmp = ({modalWindowHandler, element, elementParentI
     };
 
     return element ? <ModalWindowCmp modalHandler={modalWindowHandler} title={`Usuń element - ${element.name}`}>
-        <ButtonCmp title="Usuń powiązany element" onClick={removeAssociatedBtnOnClick}/>
+        <ButtonCmp color={colors.success} title="Usuń powiązany element" onClick={removeAssociatedBtnOnClick}/>
     </ModalWindowCmp> : <></>
 }
 

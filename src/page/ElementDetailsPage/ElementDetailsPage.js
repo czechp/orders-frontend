@@ -8,6 +8,7 @@ import useGetRequest from "../../service/useGetRequest";
 import AssociatedElementsCmp from "./component/AssociatedElementsCmp";
 import ButtonCmp from "../../component/ButtonCmp";
 import FormCmp from "../../component/FormCmp";
+import ElementRemoveCmp from "./ElementRemoveCmp";
 
 const ElementDetailsPage = () => {
     const {state: elementData} = useLocation();
@@ -18,6 +19,7 @@ const ElementDetailsPage = () => {
             {element && <>
                 <ElementDetailsCmp element={element}/>
                 <ElementModifyCmp element={element} reload={reload}/>
+                <ElementRemoveCmp element={element}/>
                 <NavigateToAddAssociatedElement element={element}/>
                 <AssociatedElementsCmp element={element}/>
             </>}
