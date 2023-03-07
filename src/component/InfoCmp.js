@@ -13,7 +13,7 @@ const InfoCmp = ({title, data})=>{
             <Tbody>
                 {data.map((row, id) => <Tr key={`${row.value}-${Math.random()}`}>
                     <Td>{row.label}</Td>
-                    <Td>{row.value}</Td>
+                    <Td style={{maxWidth:"50vw", minWidth:"20vw", overflowWrap:"break-word"}}>{row.value}</Td>
                 </Tr>)}
             </Tbody>
         </Table>

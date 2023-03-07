@@ -4,7 +4,6 @@ import colors from "../style/colors";
 import ButtonCmp from "./ButtonCmp";
 
 const ModalWindowCmp = ({title, modalHandler, children}) => {
-    const [visibility, setVisibility] = React.useState(true);
     return modalHandler.visibility ? <Container>
         <ContentContainer>
             <ModalTitle>{title}</ModalTitle>
@@ -21,10 +20,11 @@ const Container = styled.div`
   top: 10%;
   width: 100vw;
   left: 0;
-  height: 100%;
+  height: calc(100vh - 10%);
   z-index: 999;
   display: flex;
   justify-content: center;
+  overflow-y: scroll;
 `;
 
 const ContentContainer = styled.div`

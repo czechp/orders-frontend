@@ -27,7 +27,7 @@ const NavigationCmp = () => {
             <NavigationButton>Zamknięte</NavigationButton>
         </NavigationSection>
         <NavigationSection title="Elementy">
-            <NavigationButton>Elementy</NavigationButton>
+            <NavigationButton onClick={()=>navigate("/elements")}>Elementy</NavigationButton>
             <NavigationButton onClick={()=>navigate("/producers")}>Producenci</NavigationButton>
             <NavigationButton onClick={()=>navigate("/categories")}>Kategorie</NavigationButton>
             <NavigationButton onClick={()=>navigate("/providers")}>Dostawcy</NavigationButton>

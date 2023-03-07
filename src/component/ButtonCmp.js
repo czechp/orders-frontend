@@ -11,7 +11,7 @@ const ButtonCmp = ({title, color = colors.primary, onClick, style={}}) => {
 
 const Button = styled.button`
   width: 100%;
-  padding: .5rem;
+  padding: .2rem;
   border: 2px solid ${props => props.color};
   color: ${props => props.color};
   background-color: transparent;

@@ -25,6 +25,9 @@ import CategoriesPage from "./page/CategoriesPage/CategoriesPage";
 import CategoryDetailsPage from "./page/CategoryDetailsPage/CategoryDetailsPage";
 import ProducersPage from "./page/ProducersPage/ProducersPage";
 import ProducerDetailsPage from "./page/ProducerDetailsPage/ProducerDetailsPage";
+import ElementsPage from "./page/ElementsPage/ElementsPage";
+import ElementDetailsPage from "./page/ElementDetailsPage/ElementDetailsPage";
+import ElementAddAssociatedElementPage from "./page/ElementAddAssociatedElementPage/ElementAddAssociatedElementPage";
 
 export const StatementContext = React.createContext();
 export const AuthenticationContext = React.createContext();
@@ -52,6 +55,9 @@ function App() {
                                     <Route path={"/category-details"} element={<LoginGuard><CategoryDetailsPage/></LoginGuard>} />
                                     <Route path={"/producers"} element={<LoginGuard><ProducersPage/></LoginGuard>} />
                                     <Route path={"/producer-details"} element={<LoginGuard><ProducerDetailsPage/></LoginGuard>} />
+                                    <Route path={"/elements"} element={<LoginGuard><ElementsPage/></LoginGuard>} />
+                                    <Route path={"/element-details"} element={<LoginGuard><ElementDetailsPage/></LoginGuard>} />
+                                    <Route path={"/element-add-associated"} element={<LoginGuard><ElementAddAssociatedElementPage/></LoginGuard>} />
                                     <Route path={"/register"} element={<RegisterPage/>}/>
                                     <Route path={"/users"} element={<AdminGuard><UsersPage/></AdminGuard>} />
                                     <Route path={"/user-details"} element={<AdminGuard><UserDetailsPage/></AdminGuard>} />
