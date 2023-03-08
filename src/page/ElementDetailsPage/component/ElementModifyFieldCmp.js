@@ -25,7 +25,7 @@ const ElementModifyFieldCmp = ({
         const result = dataOptions.find((e) => e.name === element[fieldName]);
         if (result)
             setDataId(result.id);
-    }, [dataOptions]);
+    }, [dataOptions, element, fieldName]);
 
     function generateSelectOptions() {
         return dataOptions.map((data) => {

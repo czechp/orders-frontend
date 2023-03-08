@@ -27,7 +27,7 @@ const ElementListCmp = ({
             params = {...params, ...sortParams};
 
         axiosService.get(url, (response) => setElements(response.data), params);
-    }, [axiosService, filterPattern, sortParams]);
+    }, [axiosService, filterPattern, sortParams, url]);
 
     const sortByField = (fieldName) => {
         setSortParams(sortingParams(fieldName));
