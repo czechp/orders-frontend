@@ -21,9 +21,9 @@ const ProducerDetailsPage = () => {
     return <PageCmp title={`Szczegóły producenta - ${producerData.name}`}>
         <LoadingWrapper loaded={producer}>
             {producer && <>
-                <ProducerDetailsCmp producer={producer} />
-                <ProducerUpdateCmp producer={producer} reload={getProducerCallback} />
-                <ProducerRemoveCmp producer={producer} />
+                <ProducerDetailsCmp producer={producer}/>
+                <ProducerUpdateCmp producer={producer} reload={getProducerCallback}/>
+                <ProducerRemoveCmp producer={producer}/>
             </>}
         </LoadingWrapper>
     </PageCmp>

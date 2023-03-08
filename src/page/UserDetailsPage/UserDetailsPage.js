@@ -31,9 +31,9 @@ const UserDetailsPage = () => {
                 {label: "Login", value: user.username},
                 {label: "Email", value: user.email},
                 {label: "Rola", value: user.userRole},
-                {label: "Potwierdzenie adresu email", value: user.confirmed ? "TAK":"NIE"},
-                {label: "Konto aktywne", value: user.confirmedByAdmin ? "TAK":"NIE"},
-                {label: "Data utowrzenia",  value: dateFormatter.toFormattedDate(user.createdAt)}
+                {label: "Potwierdzenie adresu email", value: user.confirmed ? "TAK" : "NIE"},
+                {label: "Konto aktywne", value: user.confirmedByAdmin ? "TAK" : "NIE"},
+                {label: "Data utowrzenia", value: dateFormatter.toFormattedDate(user.createdAt)}
             ]);
         }
     }, [user]);
@@ -43,7 +43,7 @@ const UserDetailsPage = () => {
             <InfoCmp title="Informacje o użytkowniku" data={userInfo}/>
             <UserConfirmByAdminCmp user={user} reloadUser={getUserCallback}/>
             <UserAssignRoleCmp user={user} reloadUser={getUserCallback}/>
-            <UserRemoveCmp user={user} />
+            <UserRemoveCmp user={user}/>
         </LoadingWrapper>
     </PageCmp>
 }

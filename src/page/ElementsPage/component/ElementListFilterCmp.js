@@ -6,7 +6,7 @@ import InputTextCmp from "../../../component/InputTextCmp";
 
 const ElementListFilterCmp = ({filterPattern, setFilterPattern}) => {
 
-    const clearButtonOnClick = ()=>{
+    const clearButtonOnClick = () => {
         setFilterPattern("");
     }
     return <FormCmp>

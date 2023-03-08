@@ -21,9 +21,9 @@ const ProviderDetailsPage = () => {
     return <PageCmp title={`Szczegóły dostawcy - ${providerData.name}`}>
         <LoadingWrapper loaded={provider}>
             {provider && <>
-                <ProviderDetailsCmp provider={provider} />
+                <ProviderDetailsCmp provider={provider}/>
                 <ProviderUpdateCmp provider={provider} reload={getProviderCallback}/>
-                <ProviderRemoveCmp provider={provider} />
+                <ProviderRemoveCmp provider={provider}/>
             </>}
         </LoadingWrapper>
     </PageCmp>

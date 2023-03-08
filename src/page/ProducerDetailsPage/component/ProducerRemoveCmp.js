@@ -25,7 +25,8 @@ const ProducerRemoveCmp = ({producer}) => {
 
     return <FormCmp>
         <ButtonCmp title={"Usuń"} color={colors.danger} onClick={modalWindowHandler.showModalWindow}/>
-        <ModalWindowCmp modalHandler={modalWindowHandler} title={`Potwierdzenie usunięcia producenta - ${producer.name}`}>
+        <ModalWindowCmp modalHandler={modalWindowHandler}
+                        title={`Potwierdzenie usunięcia producenta - ${producer.name}`}>
             <ButtonCmp title="Usuń" color={colors.success} onClick={confirmRemoveBtnOnClick}/>
         </ModalWindowCmp>
     </FormCmp>

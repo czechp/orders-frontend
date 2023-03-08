@@ -1,5 +1,6 @@
 import InfoCmp from "../../../component/InfoCmp";
 import dateFormatter from "../../../service/dateFormatter";
+
 const ProducerDetailsCmp = ({producer}) => {
     const categoryData = [
         {label: "Id", value: producer.id},
@@ -7,8 +8,8 @@ const ProducerDetailsCmp = ({producer}) => {
         {label: "Data stworzenia", value: dateFormatter.toFormattedDate(producer.createdAt)},
         {label: "Data modyfikacji", value: dateFormatter.toFormattedDate(producer.updateAt)},
     ];
-    return <InfoCmp title="Szczegóły producenta" data={categoryData} />
+    return <InfoCmp title="Szczegóły producenta" data={categoryData}/>
 }
 
-export  default ProducerDetailsCmp;
+export default ProducerDetailsCmp;
 

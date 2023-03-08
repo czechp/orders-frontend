@@ -7,7 +7,10 @@ import {Link} from "react-router-dom";
 import colors from "../../../style/colors";
 import ElementListFilterCmp from "./ElementListFilterCmp";
 
-const ElementListCmp = ({reload, url, withFilter = false, rowOnClick = () => {}}) => {
+const ElementListCmp = ({
+                            reload, url, withFilter = false, rowOnClick = () => {
+    }
+                        }) => {
     const [elements, setElements] = React.useState();
     const [filterPattern, setFilterPattern] = React.useState("");
     const [sortParams, setSortParams] = React.useState();

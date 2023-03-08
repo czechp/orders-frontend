@@ -23,7 +23,7 @@ const ElementModifyFieldCmp = ({
 
     React.useEffect(() => {
         const result = dataOptions.find((e) => e.name === element[fieldName]);
-        if(result)
+        if (result)
             setDataId(result.id);
     }, [dataOptions]);
 

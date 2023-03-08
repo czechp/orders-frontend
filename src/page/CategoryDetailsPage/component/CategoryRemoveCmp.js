@@ -25,7 +25,8 @@ const CategoryRemoveCmp = ({category}) => {
 
     return <FormCmp>
         <ButtonCmp title={"Usuń"} color={colors.danger} onClick={modalWindowHandler.showModalWindow}/>
-        <ModalWindowCmp modalHandler={modalWindowHandler} title={`Potwierdzenie usunięcia kategorii - ${category.name}`}>
+        <ModalWindowCmp modalHandler={modalWindowHandler}
+                        title={`Potwierdzenie usunięcia kategorii - ${category.name}`}>
             <ButtonCmp title="Usuń" color={colors.success} onClick={confirmRemoveBtnOnClick}/>
         </ModalWindowCmp>
     </FormCmp>

@@ -4,8 +4,8 @@ import SetNewPasswordCmp from "./component/SetNewPasswordCmp";
 
 const RestorePasswordPage = () => {
     return <PageCmp title="Odzyskiwanie hasła">
-        <GenerateRestorePasswordTokenCmp />
-        <SetNewPasswordCmp />
+        <GenerateRestorePasswordTokenCmp/>
+        <SetNewPasswordCmp/>
     </PageCmp>
 }
 

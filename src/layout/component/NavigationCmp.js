@@ -17,14 +17,10 @@ const NavigationCmp = () => {
 
         </NavigationSection>
         <NavigationSection title="Zamówienia - wszystkie">
-            <NavigationButton onClick={()=>navigate("/orders-all")}>Oczekujące</NavigationButton>
-            <NavigationButton onClick={()=>navigate("/orders-all")}>W realizacji</NavigationButton>
-            <NavigationButton onClick={()=>navigate("/orders-all")}>Zamknięte</NavigationButton>
+            <NavigationButton onClick={()=>navigate("/orders")}>Zamówienia</NavigationButton>
         </NavigationSection>
         <NavigationSection title="Zamówienia - Twoje">
-            <NavigationButton>Oczekujące</NavigationButton>
-            <NavigationButton>W realizacji</NavigationButton>
-            <NavigationButton>Zamknięte</NavigationButton>
+            <NavigationButton>Zamówienia</NavigationButton>
         </NavigationSection>
         <NavigationSection title="Elementy">
             <NavigationButton onClick={()=>navigate("/elements")}>Elementy</NavigationButton>

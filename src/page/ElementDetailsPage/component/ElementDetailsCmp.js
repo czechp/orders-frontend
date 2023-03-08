@@ -9,7 +9,10 @@ const ElementDetailsCmp = ({element}) => {
         {label: "Nazwa", value: element.name},
         {label: "Opis", value: element.description},
         {label: "Nr.seryjny", value: element.serialNumber},
-        {label: "Link", value:<Link style={{color: colors.primary}} to={{ pathname: element.url }} target="_blank">Klik</Link> },
+        {
+            label: "Link",
+            value: <Link style={{color: colors.primary}} to={{pathname: element.url}} target="_blank">Klik</Link>
+        },
         {label: "Producent", value: element.producer},
         {label: "Kategoria", value: element.category},
         {label: "Dostawca", value: element.provider},

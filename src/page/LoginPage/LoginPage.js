@@ -36,7 +36,8 @@ const LoginPage = () => {
     return <PageCmp title="Login">
         <FormCmp>
             <InputTextCmp title="Login" placeholder="Wpisz login" value={login} setValue={setLogin}/>
-            <InputTextCmp  title="Hasło" placeholder="Wpisz hasło" value={password} setValue={setPassword} type="password"/>
+            <InputTextCmp title="Hasło" placeholder="Wpisz hasło" value={password} setValue={setPassword}
+                          type="password"/>
             <ButtonCmp onClick={loginBtnOnClick} title="Login"/>
         </FormCmp>
     </PageCmp>

@@ -16,7 +16,8 @@ const AssociatedElementsCmp = ({element}) => {
         <Title>Powiązane elementy</Title>
         <ElementListCmp reload={() => {
         }} url={`api/elements/associated-elements/${element.id}`} rowOnClick={rowOnClick}/>
-        <AssociatedElementRemoveCmp modalWindowHandler={modalWindowHandler} element={elementToRemove} elementParentId={element.id}/>
+        <AssociatedElementRemoveCmp modalWindowHandler={modalWindowHandler} element={elementToRemove}
+                                    elementParentId={element.id}/>
     </Container>
 }
 
