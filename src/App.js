@@ -28,6 +28,7 @@ import ElementsPage from "./page/ElementsPage/ElementsPage";
 import ElementDetailsPage from "./page/ElementDetailsPage/ElementDetailsPage";
 import ElementAddAssociatedElementPage from "./page/ElementAddAssociatedElementPage/ElementAddAssociatedElementPage";
 import OrdersPage from "./page/OrdersPage/OrdersPage";
+import OrderDetailsPage from "./page/OrderDetailsPage/OrderDetailsPage";
 
 export const StatementContext = React.createContext();
 export const AuthenticationContext = React.createContext();
@@ -58,6 +59,7 @@ function App() {
                                     <Route path={"/element-details"} element={<LoginGuard><ElementDetailsPage/></LoginGuard>} />
                                     <Route path={"/element-add-associated"} element={<LoginGuard><ElementAddAssociatedElementPage/></LoginGuard>} />
                                     <Route path={"/orders"} element={<LoginGuard><OrdersPage/></LoginGuard>} />
+                                    <Route path={"/order-details"} element={<LoginGuard><OrderDetailsPage/></LoginGuard>} />
                                     <Route path={"/register"} element={<RegisterPage/>}/>
                                     <Route path={"/users"} element={<AdminGuard><UsersPage/></AdminGuard>} />
                                     <Route path={"/user-details"} element={<AdminGuard><UserDetailsPage/></AdminGuard>} />

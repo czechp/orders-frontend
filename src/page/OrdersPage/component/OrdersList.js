@@ -6,7 +6,10 @@ import dateFormatter from "../../../service/dateFormatter";
 import useSortingParams from "../../../service/useSortingParams";
 import LoadingWrapper from "../../../component/LoadingWrapper";
 
-const OrdersList = ({state, title}) => {
+const OrdersList = ({
+                        state, title, rowOnClick = () => {
+    }
+                    }) => {
     const [orders, setOrders] = React.useState();
     const [sortParams, setSortParams] = React.useState(null);
     const axiosService = useAxiosService();
@@ -51,15 +54,16 @@ const OrdersList = ({state, title}) => {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        {orders.map((order) => <OrderRow key={`${order.id}-${Math.random()}`} order={order}/>)}
+                        {orders.map((order) => <OrderRow key={`${order.id}-${Math.random()}`} order={order}
+                                                         onClick={rowOnClick}/>)}
                     </Tbody>
                 </Table></>}
         </LoadingWrapper>
     </Container>
 }
 
-const OrderRow = ({order}) => {
-    return <Tr>
+const OrderRow = ({order, onClick}) => {
+    return <Tr onClick={() => onClick(order)}>
         <Td>{order.id}</Td>
         <Td>{order.name}</Td>
         <Td>{order.owner}</Td>
