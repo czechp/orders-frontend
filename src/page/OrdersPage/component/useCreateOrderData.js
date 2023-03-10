@@ -1,8 +1,8 @@
 import React from "react";
 
-const useCreateOrderData = () => {
-    const [name, setName] = React.useState("");
-    const [description, setDescription] = React.useState("");
+const useCreateOrderData = (nameInit="", descriptionInit="") => {
+    const [name, setName] = React.useState(nameInit);
+    const [description, setDescription] = React.useState(descriptionInit);
 
     return {
         name: {
