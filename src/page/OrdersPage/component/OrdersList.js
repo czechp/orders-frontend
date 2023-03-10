@@ -7,7 +7,7 @@ import useSortingParams from "../../../service/useSortingParams";
 import LoadingWrapper from "../../../component/LoadingWrapper";
 
 const OrdersList = ({
-                        state, title, rowOnClick = () => {
+                        state, title, reload, rowOnClick = () => {
     }
                     }) => {
     const [orders, setOrders] = React.useState();
@@ -30,7 +30,7 @@ const OrdersList = ({
 
     React.useEffect(() => {
         getOrdersRequest()
-    }, [getOrdersRequest]);
+    }, [getOrdersRequest, reload]);
 
     return <Container>
         <LoadingWrapper loaded={orders}>

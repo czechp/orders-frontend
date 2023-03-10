@@ -1,3 +1,4 @@
+import React from "react";
 import PageCmp from "../../component/PageCmp";
 import OrdersList from "./component/OrdersList";
 import {useNavigate} from "react-router-dom";
@@ -11,10 +12,10 @@ const OrdersPage = () => {
     }
 
     return <PageCmp title="Wszystkie zamówienia">
-        <OrderCreateCmp />
-        <OrdersList rowOnClick={navigateToDetails} state="PREPARATION" title="W przygotowaniu"/>
-        <OrdersList rowOnClick={navigateToDetails} state="EXECUTION" title="W realizacji"/>
-        <OrdersList rowOnClick={navigateToDetails} state="CLOSED" title="Zamknięte"/>
+        <OrderCreateCmp reload={reloadPage}/>
+        <OrdersList reload={reload} rowOnClick={navigateToDetails} state="PREPARATION" title="W przygotowaniu"/>
+        <OrdersList reload={reload} rowOnClick={navigateToDetails} state="EXECUTION" title="W realizacji"/>
+        <OrdersList reload={reload} rowOnClick={navigateToDetails} state="CLOSED" title="Zamknięte"/>
     </PageCmp>
 }
 
