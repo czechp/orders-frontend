@@ -14,7 +14,8 @@ export const Thead = styled.thead`
 export const Th = styled.th`
   padding: 1rem .5rem 1rem .5rem;
   margin: 0;
-  &:hover{
+  font-style: italic;
+  &:hover {
     cursor: pointer;
     background-color: ${colors.background};
     color: ${colors.main};
