@@ -7,14 +7,32 @@ import useCreateOrderData from "./useCreateOrderData";
 import InputTextCmp from "../../../component/InputTextCmp";
 import colors from "../../../style/colors";
 import {StatementContext} from "../../../App";
+import useAxiosService from "../../../service/useAxiosService";
 
-const OrderCreateCmp = () => {
+const OrderCreateCmp = ({reload}) => {
     const modalWindowHandler = useModalWindow();
     const newOrderData = useCreateOrderData();
     const {showInfo} = React.useContext(StatementContext);
+    const axiosService = useAxiosService();
+
+    function orderCreated() {
+        showInfo(`Zamowienie  - ${newOrderData.name.value} zostało utworzone`);
+        modalWindowHandler.hideModalWindow();
+        reload();
+    }
+
+    const createOrderRequest = () => {
+        const requestBody = {
+            name: newOrderData.name.value,
+            description: newOrderData.name.value
+        };
+        axiosService.post("/api/orders", requestBody, orderCreated)
+
+    }
     const createOrderBtnOnClick = () => {
         const formValidated = newOrderData.validateAll();
         if (formValidated) {
+            createOrderRequest();
         } else
             showInfo("Sprwadź porapwność danych", true);
     }

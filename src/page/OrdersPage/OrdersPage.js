@@ -6,6 +6,11 @@ import OrderCreateCmp from "./component/OrderCreateCmp";
 
 const OrdersPage = () => {
     const navigate = useNavigate();
+    const [reload, setReload] = React.useState(false);
+
+    function reloadPage() {
+        setReload((prev) => !prev);
+    }
 
     function navigateToDetails(order) {
         navigate("/order-details", {state: {id: order.id, name: order.name}});
