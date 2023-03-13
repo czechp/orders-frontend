@@ -45,7 +45,7 @@ const OrderModifyInfo = ({order, reload}) => {
             <ModalWindowCmp modalHandler={modalWindowHandler} title={`Zmień nazwę lub opis dla - ${order.name}`}>
                 <InputTextCmp title="Nazwa" value={orderForm.name.value} setValue={orderForm.name.setName}
                               placeholder="Wpisz nową nazwę dla zamówienia" validation={orderForm.name.validation}/>
-                <InputTextCmp title="Opis" value={orderForm.description.value} setValue={orderForm.description.value}
+                <InputTextCmp title="Opis" value={orderForm.description.value} setValue={orderForm.description.setDescription}
                               placeholder="Wpisz nowy opis"/>
                 <ButtonCmp color={colors.success} title="Zapisz" onClick={updateDataBtnOnClick}/>
             </ModalWindowCmp>

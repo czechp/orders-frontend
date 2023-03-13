@@ -4,7 +4,7 @@ import {useLocation} from "react-router-dom";
 import useGetRequest from "../../service/useGetRequest";
 import LoadingWrapper from "../../component/LoadingWrapper";
 import OrderInfoCmp from "./component/OrderInfoCmp";
-import OrderModifyInfo from "./component/OrderModifyInfo";
+import OrderModifyInfoCmp from "./component/OrderModifyInfo";
 
 const OrderDetailsPage = () => {
     const {state: orderData} = useLocation();
@@ -14,7 +14,7 @@ const OrderDetailsPage = () => {
         <LoadingWrapper loaded={order}>
             {order && <>
                 <OrderInfoCmp order={order}/>
-                <OrderModifyInfo order={order} reload={reload}/>
+                <OrderModifyInfoCmp order={order} reload={reload}/>
             </>}
         </LoadingWrapper>
     </PageCmp>
