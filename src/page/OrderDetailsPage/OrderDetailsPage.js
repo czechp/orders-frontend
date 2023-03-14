@@ -4,7 +4,7 @@ import {useLocation} from "react-router-dom";
 import useGetRequest from "../../service/useGetRequest";
 import LoadingWrapper from "../../component/LoadingWrapper";
 import OrderInfoCmp from "./component/OrderInfoCmp";
-import OrderModifyInfoCmp from "./component/OrderModifyInfo";
+import OrderModifyInfoCmp from "./component/OrderModifyInfoCmp";
 import PositionsListCmp from "./component/PositionsListCmp";
 
 const OrderDetailsPage = () => {

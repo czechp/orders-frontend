@@ -10,7 +10,7 @@ import {StatementContext} from "../../../App";
 import useAxiosService from "../../../service/useAxiosService";
 import useOrderOwner from "../../../service/useOrderOwner";
 
-const OrderModifyInfo = ({order, reload}) => {
+const OrderModifyInfoCmp = ({order, reload}) => {
     const modalWindowHandler = useModalWindow();
     const orderForm = useCreateOrderData(order.name, order.description);
     const {showInfo} = React.useContext(StatementContext);
@@ -54,4 +54,4 @@ const OrderModifyInfo = ({order, reload}) => {
         <></>
 }
 
-export default OrderModifyInfo;
+export default OrderModifyInfoCmp;
