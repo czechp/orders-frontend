@@ -1,6 +1,6 @@
 import InfoCmp from "../../../component/InfoCmp";
 import dateFormatter from "../../../service/dateFormatter";
-import {orderStateTranslator} from "../../../service/orderStateTranslator";
+import {orderStateTranslator} from "../../../service/translator/orderStateTranslator";
 
 const OrderInfoCmp = ({order}) => {
     const orderData = [

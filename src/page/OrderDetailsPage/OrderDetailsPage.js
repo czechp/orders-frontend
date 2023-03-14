@@ -5,6 +5,7 @@ import useGetRequest from "../../service/useGetRequest";
 import LoadingWrapper from "../../component/LoadingWrapper";
 import OrderInfoCmp from "./component/OrderInfoCmp";
 import OrderModifyInfoCmp from "./component/OrderModifyInfo";
+import PositionsListCmp from "./component/PositionsListCmp";
 
 const OrderDetailsPage = () => {
     const {state: orderData} = useLocation();
@@ -15,6 +16,7 @@ const OrderDetailsPage = () => {
             {order && <>
                 <OrderInfoCmp order={order}/>
                 <OrderModifyInfoCmp order={order} reload={reload}/>
+                <PositionsListCmp order={order} />
             </>}
         </LoadingWrapper>
     </PageCmp>
