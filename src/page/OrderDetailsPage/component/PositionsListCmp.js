@@ -6,7 +6,7 @@ import colors from "../../../style/colors";
 import {Link} from "react-router-dom";
 import React from "react";
 
-const PositionsListCmp = ({order}) => {
+const PositionsListCmp = ({order, rowOnClick=()=>{}}) => {
     return <Container>
         <Table>
             <Thead>
@@ -22,13 +22,13 @@ const PositionsListCmp = ({order}) => {
             </Thead>
             <Tbody>
                 {order.positions.map((position) => <PositionRow key={`${position.id}-${Math.random()}`}
-                                                                position={position}/>)}
+                                                                position={position} onClick={rowOnClick}/>)}
             </Tbody>
         </Table>
     </Container>
 }
 
-const PositionRow = ({position}) => {
+const PositionRow = ({position, onClick}) => {
     let stateColor = colors.background;
     switch (position.positionStatus) {
         case "NOT_ORDERED":
@@ -49,7 +49,7 @@ const PositionRow = ({position}) => {
         borderRight: `10px solid ${stateColor}`,
         color: stateColor
     };
-    return <Tr style={rowStyle}>
+    return <Tr style={rowStyle} onClick={()=>{onClick(position)}}>
         <Td>{position.id}</Td>
         <Td>{position.name}</Td>
         <Td>{position.producer}</Td>
