@@ -7,8 +7,7 @@ import useSortingParams from "../../../service/useSortingParams";
 import LoadingWrapper from "../../../component/LoadingWrapper";
 
 const OrdersList = ({
-                        state, title, reload, rowOnClick = () => {
-    }
+                        state, title, url, rowOnClick = () => {}, reload=()=>{}
                     }) => {
     const [orders, setOrders] = React.useState();
     const [sortParams, setSortParams] = React.useState(null);
@@ -21,7 +20,7 @@ const OrdersList = ({
         if (sortParams)
             params = sortParams;
 
-        axiosService.get("/api/orders", (response) => setOrders(response.data), {...params, state});
+        axiosService.get(url, (response) => setOrders(response.data), {...params, state});
     }, [setOrders, axiosService, state, sortParams]);
 
     const determineSortingParameters = (field) => {

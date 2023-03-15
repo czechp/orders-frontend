@@ -18,9 +18,9 @@ const OrdersPage = () => {
 
     return <PageCmp title="Wszystkie zamówienia">
         <OrderCreateCmp reload={reloadPage}/>
-        <OrdersList reload={reload} rowOnClick={navigateToDetails} state="PREPARATION" title="W przygotowaniu"/>
-        <OrdersList reload={reload} rowOnClick={navigateToDetails} state="EXECUTION" title="W realizacji"/>
-        <OrdersList reload={reload} rowOnClick={navigateToDetails} state="CLOSED" title="Zamknięte"/>
+        <OrdersList url={"/api/orders"} reload={reload} rowOnClick={navigateToDetails} state="PREPARATION" title="W przygotowaniu"/>
+        <OrdersList url={"/api/orders"} reload={reload} rowOnClick={navigateToDetails} state="EXECUTION" title="W realizacji"/>
+        <OrdersList url={"/api/orders"} reload={reload} rowOnClick={navigateToDetails} state="CLOSED" title="Zamknięte"/>
     </PageCmp>
 }
 
