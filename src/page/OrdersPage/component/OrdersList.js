@@ -21,7 +21,7 @@ const OrdersList = ({
             params = sortParams;
 
         axiosService.get(url, (response) => setOrders(response.data), {...params, state});
-    }, [setOrders, axiosService, state, sortParams]);
+    }, [setOrders, axiosService, state, sortParams, url]);
 
     const determineSortingParameters = (field) => {
         setSortParams(generateSortingParams(field));
