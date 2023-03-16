@@ -8,13 +8,16 @@ import OrderModifyInfoCmp from "./component/OrderModifyInfoCmp";
 import PositionsListCmp from "./component/PositionsListCmp";
 import PositionDetailsCmp from "./component/PositionDetailsCmp";
 import useModalWindow from "../../service/useModalWindow";
+import OrderAddPositionCmp from "./component/OrderAddPositionCmp";
+import useOrderOwner from "../../service/useOrderOwner";
 
 const OrderDetailsPage = () => {
     const {state: orderData} = useLocation();
     const {result: order, reload} = useGetRequest(`/api/orders/${orderData.id}`, true);
     const detailsModalHandler = useModalWindow();
     const [selectedPosition, setSelectedPosition] = React.useState();
-
+    const userIsOrderOwner = useOrderOwner(order);
+    const allowAddPosition = order?.orderState === "PREPARATION" && userIsOrderOwner;
     const selectPosition = (position) => {
         setSelectedPosition(position);
         detailsModalHandler.showModalWindow();
@@ -26,6 +29,7 @@ const OrderDetailsPage = () => {
                 <OrderModifyInfoCmp order={order} reload={reload}/>
                 <PositionsListCmp order={order} rowOnClick={selectPosition}/>
                 <PositionDetailsCmp modalWindowHandler={detailsModalHandler} position={selectedPosition}/>
+                {allowAddPosition && <OrderAddPositionCmp order={order} reload={reload} />}
             </>}
         </LoadingWrapper>
     </PageCmp>
