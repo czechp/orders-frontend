@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../style/colors";
 
-const SelectCmp = ({value, setValue, options = [], title}) => {
+const SelectCmp = ({value, setValue, options = [], title, style={}}) => {
     const onChange = (event) => {
         setValue(event.target.value);
     }
@@ -13,15 +13,18 @@ const SelectCmp = ({value, setValue, options = [], title}) => {
         if (!value)
             setValue(options[0] ? options[0].value : "NOT SET");
     }, [value, setValue, options]);
-    return <>
+    return <Container style={style}>
         {title && <Label htmlFor={selectId}>{title}</Label>}
         <Select id={selectId} value={value} onChange={onChange}>
             {options.map((option, id) => <Option key={`${option.value}-${Math.random()}`}
                                                  value={option.value}>{option.text}</Option>)}
         </Select>
-    </>
+    </Container>
 }
 
+const Container = styled.div`
+    width: 100%;
+`;
 const Select = styled.select`
   width: 100%;
   margin-bottom: 2rem;

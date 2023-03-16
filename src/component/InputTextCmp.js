@@ -7,6 +7,7 @@ const InputTextCmp = ({
                           setValue,
                           placeholder = "",
                           type = "text",
+                          style = {},
                           validation = {message: "", validate: (text) => true}
                       }) => {
 
@@ -17,7 +18,7 @@ const InputTextCmp = ({
         setValue(event.target.value);
     }
 
-    return <Container>
+    return <Container style={style}>
         <Label htmlFor={id}>{title}</Label>
         <InputText id={id} value={value} onChange={onChange} type={type} placeholder={placeholder}/>
         {!validated && <Error>{validation.message}</Error>}
