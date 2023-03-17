@@ -28,7 +28,7 @@ const OrderDetailsPage = () => {
                 <OrderInfoCmp order={order}/>
                 <OrderModifyInfoCmp order={order} reload={reload}/>
                 <PositionsListCmp order={order} rowOnClick={selectPosition}/>
-                <PositionDetailsCmp modalWindowHandler={detailsModalHandler} position={selectedPosition}/>
+                <PositionDetailsCmp modalWindowHandler={detailsModalHandler} position={selectedPosition} orderId={order.id} reload={reload}/>
                 {allowAddPosition && <OrderAddPositionCmp order={order} reload={reload} />}
             </>}
         </LoadingWrapper>
