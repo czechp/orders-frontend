@@ -42,10 +42,10 @@ const OrdersList = ({
                                 determineSortingParameters("id")
                             }}>Id</Th>
                             <Th onClick={() => {
-                                determineSortingParameters("orderInfoName")
+                                determineSortingParameters("name")
                             }}>Nazwa</Th>
                             <Th onClick={() => {
-                                determineSortingParameters("createdBy")
+                                determineSortingParameters("owner")
                             }}>Właściciel</Th>
                             <Th onClick={() => {
                                 determineSortingParameters("internalId")
