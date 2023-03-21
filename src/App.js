@@ -32,6 +32,7 @@ import OrderDetailsPage from "./page/OrderDetailsPage/OrderDetailsPage";
 import UserOrdersPage from "./page/UserOrders/UserOrdersPage";
 import OrderReleaseToExecutionCmp from "./page/OrderDetailsPage/component/OrderReleaseToExecutionCmp";
 import OrdersInExecutionPage from "./page/OrdersInExecutionPage/OrdersInExecutionPage";
+import ManagementGuard from "./guard/ManagementGuard";
 
 export const StatementContext = React.createContext();
 export const AuthenticationContext = React.createContext();
@@ -69,7 +70,7 @@ function App() {
                                     <Route path={"/orders"} element={<LoginGuard><OrdersPage/></LoginGuard>}/>
                                     <Route path={"/order-details"}
                                            element={<LoginGuard><OrderDetailsPage/></LoginGuard>}/>
-                                    <Route path={"/orders-in-execution"} element={<OrdersInExecutionPage/>}/>
+                                    <Route path={"/orders-in-execution"} element={<ManagementGuard><OrdersInExecutionPage/></ManagementGuard>}/>
                                     <Route path={"/user-orders"} element={<LoginGuard><UserOrdersPage/></LoginGuard>}/>
                                     <Route path={"/register"} element={<RegisterPage/>}/>
                                     <Route path={"/users"} element={<AdminGuard><UsersPage/></AdminGuard>}/>
