@@ -8,6 +8,7 @@ const OrderInfoCmp = ({order}) => {
         {label: "Właściciel", value: order.owner},
         {label: "Nazwa", value: order.name},
         {label: "Opis", value: order.description},
+        {label: "Wewnętrzne id", value: order.internalId},
         {label: "Stan", value: orderStateTranslator.from(order.orderState)},
         {label: "Data utowrzenia", value: dateFormatter.toFormattedDate(order.createAt)},
         {label: "Data wystawienia do realizacji", value: order.executionDate ? dateFormatter.toFormattedDate(order.executionDate) : "Brak" },

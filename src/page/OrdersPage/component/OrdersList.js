@@ -48,6 +48,9 @@ const OrdersList = ({
                                 determineSortingParameters("createdBy")
                             }}>Właściciel</Th>
                             <Th onClick={() => {
+                                determineSortingParameters("internalId")
+                            }}>Wewnętrzne id</Th>
+                            <Th onClick={() => {
                                 determineSortingParameters("createdAt")
                             }}>Data utowrzenia</Th>
                         </Tr>
@@ -66,6 +69,7 @@ const OrderRow = ({order, onClick}) => {
         <Td>{order.id}</Td>
         <Td>{order.name}</Td>
         <Td>{order.owner}</Td>
+        <Td>{order.internalId}</Td>
         <Td>{dateFormatter.toFormattedDate(order.createdAt)}</Td>
 
     </Tr>
