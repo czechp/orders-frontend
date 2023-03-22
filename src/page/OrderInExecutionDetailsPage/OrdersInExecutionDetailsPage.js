@@ -26,7 +26,10 @@ const OrdersInExecutionDetailsPage = () => {
             <PositionsListCmp order={order} rowOnClick={positionRowOnClick}/>
             {selectedPosition &&
                 <PositionInExecutionDetailCmp position={selectedPosition}
-                                              modalWindowHandler={positionModalWindowHandler}/>
+                                              orderId={order.id}
+                                              modalWindowHandler={positionModalWindowHandler}
+                                              reload={reload}
+                />
             }
         </>}
     </PageCmp>
