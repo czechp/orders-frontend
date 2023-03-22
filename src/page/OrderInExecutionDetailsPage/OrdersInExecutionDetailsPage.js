@@ -6,11 +6,12 @@ import OrderInfoCmp from "../OrderDetailsPage/component/OrderInfoCmp";
 import PositionsListCmp from "../OrderDetailsPage/component/PositionsListCmp";
 import useModalWindow from "../../service/useModalWindow";
 import PositionInExecutionDetailCmp from "./component/PositionInExecutionDetailCmp";
+import OrderInExecutionSetInternalId from "./component/OrderInExecutionSetInternalId";
 
 const OrdersInExecutionDetailsPage = () => {
     const positionModalWindowHandler = useModalWindow();
     const {state: orderInfo} = useLocation();
-    const {result: order} = useGetRequest(`/api/orders/${orderInfo.id}`, true);
+    const {result: order, reload} = useGetRequest(`/api/orders/${orderInfo.id}`, true);
     const [selectedPosition, setSelectedPosition] = React.useState();
 
     const positionRowOnClick = (position) => {
@@ -21,6 +22,7 @@ const OrdersInExecutionDetailsPage = () => {
     return <PageCmp title={`Realizacja zamówienia ${orderInfo.name}`}>
         {order && <>
             <OrderInfoCmp order={order}/>
+            <OrderInExecutionSetInternalId order={order} reload={reload} />
             <PositionsListCmp order={order} rowOnClick={positionRowOnClick}/>
             {selectedPosition &&
                 <PositionInExecutionDetailCmp position={selectedPosition}
