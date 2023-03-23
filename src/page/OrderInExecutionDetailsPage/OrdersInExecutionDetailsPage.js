@@ -7,6 +7,7 @@ import PositionsListCmp from "../OrderDetailsPage/component/PositionsListCmp";
 import useModalWindow from "../../service/useModalWindow";
 import PositionInExecutionDetailCmp from "./component/PositionInExecutionDetailCmp";
 import OrderInExecutionSetInternalId from "./component/OrderInExecutionSetInternalId";
+import OrderCloseOrder from "./component/OrderCloseOrderCmp";
 
 const OrdersInExecutionDetailsPage = () => {
     const positionModalWindowHandler = useModalWindow();
@@ -23,6 +24,7 @@ const OrdersInExecutionDetailsPage = () => {
         {order && <>
             <OrderInfoCmp order={order}/>
             <OrderInExecutionSetInternalId order={order} reload={reload} />
+            <OrderCloseOrder order={order} />
             <PositionsListCmp order={order} rowOnClick={positionRowOnClick}/>
             {selectedPosition &&
                 <PositionInExecutionDetailCmp position={selectedPosition}
