@@ -13,8 +13,19 @@ const PositionInExecutionDetailCmp = ({modalWindowHandler, position, orderId, re
                                              successStatement={`Pozycja ${position.name} została zamówiona`}
                                              reload={reload}
                                              closeModal={modalWindowHandler.hideModalWindow}
-    />}
-</ModalWindowCmp>
+            />}
+        {position.positionStatus === "ORDERED" &&
+            <PositionInExecutionOrderActivty activityName="Dostarczono"
+                                             endpoint="/api/orders/deliver-position"
+                                             requestBody={{
+                                                 orderId,
+                                                 positionId: position.id
+                                             }}
+                                             successStatement={`Pozycja ${position.name} została dostarczona`}
+                                             reload={reload}
+                                             closeModal={modalWindowHandler.hideModalWindow}
+            />}
+    </ModalWindowCmp>
 }
 
 export default PositionInExecutionDetailCmp;
