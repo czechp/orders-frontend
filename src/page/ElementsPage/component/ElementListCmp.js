@@ -7,7 +7,10 @@ import {Link} from "react-router-dom";
 import colors from "../../../style/colors";
 import ElementListFilterCmp from "./ElementListFilterCmp";
 
-const ElementListCmp = ({reload, url, withFilter = false, rowOnClick = () => {}}) => {
+const ElementListCmp = ({
+                            reload, url, withFilter = false, rowOnClick = () => {
+    }
+                        }) => {
     const [elements, setElements] = React.useState();
     const [filterPattern, setFilterPattern] = React.useState("");
     const [sortParams, setSortParams] = React.useState();
@@ -24,7 +27,7 @@ const ElementListCmp = ({reload, url, withFilter = false, rowOnClick = () => {}}
             params = {...params, ...sortParams};
 
         axiosService.get(url, (response) => setElements(response.data), params);
-    }, [axiosService, filterPattern, sortParams]);
+    }, [axiosService, filterPattern, sortParams, url]);
 
     const sortByField = (fieldName) => {
         setSortParams(sortingParams(fieldName));

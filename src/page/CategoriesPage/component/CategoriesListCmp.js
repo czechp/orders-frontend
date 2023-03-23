@@ -33,17 +33,17 @@ const CategoriesListCmp = ({reload}) => {
         {categories && <Table>
             <Thead>
                 <Tr>
-                    <Th onClick={()=>sortByField("id")}>Id</Th>
-                    <Th onClick={()=>sortByField("name")}>Nazwa</Th>
-                    <Th onClick={()=>sortByField("createdAt")}>Data utworzenia</Th>
-                    <Th onClick={()=>sortByField("updatedAt")}>Data modyfikacji</Th>
+                    <Th onClick={() => sortByField("id")}>Id</Th>
+                    <Th onClick={() => sortByField("name")}>Nazwa</Th>
+                    <Th onClick={() => sortByField("createdAt")}>Data utworzenia</Th>
+                    <Th onClick={() => sortByField("updatedAt")}>Data modyfikacji</Th>
                 </Tr>
             </Thead>
             <Tbody>
                 {
                     categories.map((category, index) => <CategoryRow onClick={() => navigateToDetails(category)}
-                                                                    key={`${category.id}-${Math.random()}`}
-                                                                    provider={category}/>)
+                                                                     key={`${category.id}-${Math.random()}`}
+                                                                     provider={category}/>)
                 }
             </Tbody>
         </Table>}

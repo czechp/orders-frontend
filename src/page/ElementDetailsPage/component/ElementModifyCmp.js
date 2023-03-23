@@ -42,4 +42,4 @@ const ElementModifyCmp = ({element, reload}) => {
     </FormCmp>
 }
 
-export default  ElementModifyCmp;
+export default ElementModifyCmp;

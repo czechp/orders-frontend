@@ -11,6 +11,7 @@ const ElementsPage = () => {
         const elementData = {id: element.id};
         navigate("/element-details", {state: elementData})
     }
+
     function reloadPage() {
         setReload((prev) => !prev);
     }

@@ -21,9 +21,9 @@ const CategoryDetailsPage = () => {
     return <PageCmp title={`Szczegóły kategorii - ${categoryData.name}`}>
         <LoadingWrapper loaded={category}>
             {category && <>
-                <CategoryDetailsCmp provider={category} />
-                <CategoryUpdateCmp category={category} reload={getCategoryCallback} />
-                <CategoryRemoveCmp category={category} />
+                <CategoryDetailsCmp provider={category}/>
+                <CategoryUpdateCmp category={category} reload={getCategoryCallback}/>
+                <CategoryRemoveCmp category={category}/>
             </>}
         </LoadingWrapper>
     </PageCmp>

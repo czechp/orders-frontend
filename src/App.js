@@ -6,7 +6,6 @@ import {Content, ContentWrapper, Layout, Navigation, TopBar} from "./layout/Layo
 import TopBarCmp from "./layout/component/TopBarCmp";
 import NavigationCmp from "./layout/component/NavigationCmp";
 import HomePage from "./page/HomePage/HomePage";
-import OrdersAll from "./page/OrdersAll/OrdersAll";
 import RegisterPage from "./page/RegisterPage/RegisterPage";
 import useStatementContext from "./context/useStatementContext";
 import StatementCmp from "./component/StatementCmp";
@@ -28,6 +27,12 @@ import ProducerDetailsPage from "./page/ProducerDetailsPage/ProducerDetailsPage"
 import ElementsPage from "./page/ElementsPage/ElementsPage";
 import ElementDetailsPage from "./page/ElementDetailsPage/ElementDetailsPage";
 import ElementAddAssociatedElementPage from "./page/ElementAddAssociatedElementPage/ElementAddAssociatedElementPage";
+import OrdersPage from "./page/OrdersPage/OrdersPage";
+import OrderDetailsPage from "./page/OrderDetailsPage/OrderDetailsPage";
+import UserOrdersPage from "./page/UserOrders/UserOrdersPage";
+import OrdersInExecutionPage from "./page/OrdersInExecutionPage/OrdersInExecutionPage";
+import ManagementGuard from "./guard/ManagementGuard";
+import OrdersInExecutionDetailsPage from "./page/OrderInExecutionDetailsPage/OrdersInExecutionDetailsPage";
 
 export const StatementContext = React.createContext();
 export const AuthenticationContext = React.createContext();
@@ -48,19 +53,32 @@ function App() {
                             <Content>
                                 <Routes>
                                     <Route path={"/"} element={<LoginGuard><HomePage/></LoginGuard>}/>
-                                    <Route path={"/orders-all"} element={<LoginGuard><OrdersAll/></LoginGuard>}/>
-                                    <Route path={"/providers"} element={<LoginGuard><ProvidersPage/></LoginGuard>} />
-                                    <Route path={"/provider-details"} element={<LoginGuard><ProviderDetailsPage/></LoginGuard>} />
-                                    <Route path={"/categories"} element={<LoginGuard><CategoriesPage/></LoginGuard>} />
-                                    <Route path={"/category-details"} element={<LoginGuard><CategoryDetailsPage/></LoginGuard>} />
-                                    <Route path={"/producers"} element={<LoginGuard><ProducersPage/></LoginGuard>} />
-                                    <Route path={"/producer-details"} element={<LoginGuard><ProducerDetailsPage/></LoginGuard>} />
-                                    <Route path={"/elements"} element={<LoginGuard><ElementsPage/></LoginGuard>} />
-                                    <Route path={"/element-details"} element={<LoginGuard><ElementDetailsPage/></LoginGuard>} />
-                                    <Route path={"/element-add-associated"} element={<LoginGuard><ElementAddAssociatedElementPage/></LoginGuard>} />
+                                    <Route path={"/providers"} element={<LoginGuard><ProvidersPage/></LoginGuard>}/>
+                                    <Route path={"/provider-details"}
+                                           element={<LoginGuard><ProviderDetailsPage/></LoginGuard>}/>
+                                    <Route path={"/categories"} element={<LoginGuard><CategoriesPage/></LoginGuard>}/>
+                                    <Route path={"/category-details"}
+                                           element={<LoginGuard><CategoryDetailsPage/></LoginGuard>}/>
+                                    <Route path={"/producers"} element={<LoginGuard><ProducersPage/></LoginGuard>}/>
+                                    <Route path={"/producer-details"}
+                                           element={<LoginGuard><ProducerDetailsPage/></LoginGuard>}/>
+                                    <Route path={"/elements"} element={<LoginGuard><ElementsPage/></LoginGuard>}/>
+                                    <Route path={"/element-details"}
+                                           element={<LoginGuard><ElementDetailsPage/></LoginGuard>}/>
+                                    <Route path={"/element-add-associated"}
+                                           element={<LoginGuard><ElementAddAssociatedElementPage/></LoginGuard>}/>
+                                    <Route path={"/orders"} element={<LoginGuard><OrdersPage/></LoginGuard>}/>
+                                    <Route path={"/order-details"}
+                                           element={<LoginGuard><OrderDetailsPage/></LoginGuard>}/>
+                                    <Route path={"/orders-in-execution"}
+                                           element={<ManagementGuard><OrdersInExecutionPage/></ManagementGuard>}/>
+                                    <Route path={"/orders-in-execution-details"} element={
+                                        <ManagementGuard><OrdersInExecutionDetailsPage/></ManagementGuard>}/>
+                                    <Route path={"/user-orders"} element={<LoginGuard><UserOrdersPage/></LoginGuard>}/>
                                     <Route path={"/register"} element={<RegisterPage/>}/>
-                                    <Route path={"/users"} element={<AdminGuard><UsersPage/></AdminGuard>} />
-                                    <Route path={"/user-details"} element={<AdminGuard><UserDetailsPage/></AdminGuard>} />
+                                    <Route path={"/users"} element={<AdminGuard><UsersPage/></AdminGuard>}/>
+                                    <Route path={"/user-details"}
+                                           element={<AdminGuard><UserDetailsPage/></AdminGuard>}/>
                                     <Route path={"/user-confirm"} element={<ConfirmUserPage/>}/>
                                     <Route path={"/login"} element={<LoginPage/>}/>
                                     <Route path={"/restore-password"} element={<RestorePasswordPage/>}/>
