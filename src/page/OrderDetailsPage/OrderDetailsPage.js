@@ -11,6 +11,7 @@ import useModalWindow from "../../service/useModalWindow";
 import OrderAddPositionCmp from "./component/OrderAddPositionCmp";
 import useOrderOwner from "../../service/useOrderOwner";
 import OrderReleaseToExecutionCmp from "./component/OrderReleaseToExecutionCmp";
+import OrderRemoveCmp from "./component/OrderRemoveCmp";
 
 const OrderDetailsPage = () => {
     const {state: orderData} = useLocation();
@@ -28,6 +29,7 @@ const OrderDetailsPage = () => {
             {order && <>
                 <OrderInfoCmp order={order}/>
                 <OrderModifyInfoCmp order={order} reload={reload}/>
+                <OrderRemoveCmp order={order} />
                 {allowedActivity && <OrderReleaseToExecutionCmp orderId={order.id} />}
                 <PositionsListCmp order={order} rowOnClick={selectPosition}/>
                 <PositionDetailsCmp modalWindowHandler={detailsModalHandler} position={selectedPosition} orderId={order.id} reload={reload}/>
