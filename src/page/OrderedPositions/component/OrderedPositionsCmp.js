@@ -2,6 +2,7 @@ import styled from "styled-components";
 import useGetRequest from "../../../service/useGetRequest";
 import {BACKEND_URL} from "../../../constant/URL";
 import {Table, Tbody, Td, Th, Thead, Tr} from "../../../style/table";
+import positionUnitTranslator from "../../../service/translator/positionUnitTranslator";
 
 const OrderedPositionsCmp = () => {
     const {result: positions} = useGetRequest(`${BACKEND_URL}/api/orders/positions/ordered`);
@@ -34,7 +35,7 @@ const OrderedPositionRow = ({position}) => {
         <Td>{position.serialNumber}</Td>
         <Td>{position.producer}</Td>
         <Td>{position.quantity}</Td>
-        <Td>{position.positionUnit}</Td>
+        <Td>{positionUnitTranslator.fromUnit(position.positionUnit)}</Td>
         <Td>{position.orderName}</Td>
         <Td>{position.orderOwner}</Td>
         <Td>{position.orderInternalId}</Td>
