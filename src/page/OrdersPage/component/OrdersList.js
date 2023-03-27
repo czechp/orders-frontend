@@ -49,7 +49,7 @@ const OrdersList = ({
                             }}>Właściciel</Th>
                             <Th onClick={() => {
                                 determineSortingParameters("internalId")
-                            }}>Wewnętrzne id</Th>
+                            }}>Nr. zamowienia</Th>
                             <Th onClick={() => {
                                 determineSortingParameters("createdAt")
                             }}>Data utowrzenia</Th>

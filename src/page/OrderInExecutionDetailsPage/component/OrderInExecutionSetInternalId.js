@@ -14,7 +14,7 @@ const OrderInExecutionSetInternalId = ({order, reload}) => {
     const {showInfo} = React.useContext(StatementContext);
     const axiosService = useAxiosService();
     const internalIdSaved = () => {
-          showInfo("Wewnętrzne id zostało zakutalizowane");
+          showInfo("Nr. zamówienia został zakutalizowany");
           modalWindowHandler.hideModalWindow();
           reload();
     };
@@ -23,10 +23,10 @@ const OrderInExecutionSetInternalId = ({order, reload}) => {
         axiosService.patch("/api/orders/internal-id", requestBody, internalIdSaved);
     };
     return <FormCmp>
-        <ButtonCmp title="Zmień wewnętrzne id" color={colors.warning} onClick={modalWindowHandler.showModalWindow}/>
+        <ButtonCmp title="Zmień nr. zamówienia" color={colors.warning} onClick={modalWindowHandler.showModalWindow}/>
         <ModalWindowCmp modalHandler={modalWindowHandler} title="Zmień wewnętrzne id">
-            <InputTextCmp title="Wewnętrzne id" setValue={setInternalId} value={internalId}
-                          placeholder="Wpisz wewnętrzne id"/>
+            <InputTextCmp title="Nr. zamówienia" setValue={setInternalId} value={internalId}
+                          placeholder="Wpisz numer zamówenia"/>
             <ButtonCmp title="Zapisz" color={colors.success} onClick={setInternalIdRequest}/>
         </ModalWindowCmp>
     </FormCmp>
