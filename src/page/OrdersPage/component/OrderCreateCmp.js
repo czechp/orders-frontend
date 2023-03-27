@@ -24,7 +24,7 @@ const OrderCreateCmp = ({reload}) => {
     const createOrderRequest = () => {
         const requestBody = {
             name: newOrderData.name.value,
-            description: newOrderData.name.value
+            description: newOrderData.description.value
         };
         axiosService.post("/api/orders", requestBody, orderCreated)
 
