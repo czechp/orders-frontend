@@ -1,14 +1,40 @@
+import React from "react";
 import styled from "styled-components";
-import useGetRequest from "../../../service/useGetRequest";
 import {BACKEND_URL} from "../../../constant/URL";
 import {Table, Tbody, Td, Th, Thead, Tr} from "../../../style/table";
 import positionUnitTranslator from "../../../service/translator/positionUnitTranslator";
 import LoadingWrapper from "../../../component/LoadingWrapper";
+import useAxiosService from "../../../service/useAxiosService";
+import InputTextCmp from "../../../component/InputTextCmp";
+import FormCmp from "../../../component/FormCmp";
 
 const OrderedPositionsCmp = () => {
-    const {result: positions} = useGetRequest(`${BACKEND_URL}/api/orders/positions/ordered`);
+    const [positions, setPositions] = React.useState([]);
+    const [filterPattern, setFilterPattern] = React.useState("");
+    const axiosService = useAxiosService();
+    const getPositionsCallback = React.useCallback(() => {
+        let requestParams = {};
+        if (filterPattern)
+            requestParams.pattern = filterPattern;
+
+        axiosService.get(`${BACKEND_URL}/api/orders/positions/ordered`, (response) => {
+            setPositions(response.data)
+        }, requestParams);
+
+    }, [filterPattern, axiosService]);
+
+    React.useEffect(() => {
+        getPositionsCallback();
+    }, [getPositionsCallback])
+
     return <Container>
         <LoadingWrapper loaded={positions}>
+            <FormCmp>
+                <InputTextCmp title="Filtruj" value={filterPattern}
+                              setValue={setFilterPattern}
+                              placeholder="Wpisz tekst aby przefiltrować elementy"
+                />
+            </FormCmp>
             <Table>
                 <Thead>
                     <Tr>
@@ -24,7 +50,8 @@ const OrderedPositionsCmp = () => {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {positions.map((position)=><OrderedPositionRow key={`${position.id}-${Math.random()}`} position={position} />)}
+                    {positions.map((position) => <OrderedPositionRow key={`${position.id}-${Math.random()}`}
+                                                                     position={position}/>)}
                 </Tbody>
             </Table>
         </LoadingWrapper>
