@@ -18,6 +18,7 @@ const NavigationCmp = () => {
         </NavigationSection>
         <NavigationSection title="Zamówienia - wszystkie">
             <NavigationButton onClick={()=>navigate("/orders")}>Zamówienia</NavigationButton>
+            <NavigationButton onClick={()=>navigate("/ordered-positions")}>Zamówione elementy</NavigationButton>
         </NavigationSection>
         <NavigationSection title="Zamówienia - Twoje">
             <NavigationButton onClick={()=>navigate("/user-orders")}>Zamówienia</NavigationButton>
